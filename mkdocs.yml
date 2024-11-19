@@ -69,7 +69,7 @@ plugins:
 - privacy
 - offline
 - mkdocs-jupyter:
-    execute: True  # set to False when writing
+    execute: False
     include_source: True
 - mkdocstrings:
     default_handler: python
