@@ -2,6 +2,8 @@
 
 Python package for histological quantification.
 
+Documentation : [https://teamncmc.github.io/histoquant](https://teamncmc.github.io/histoquant)
+
 ## Install
 Steps 1-3 below need to be performed only once. If Anaconda is already installed, skip steps 1-2 and use the Anaconda prompt (Powershell) instead.
 1. Install [miniconda3](https://docs.anaconda.com/free/miniconda/#id2), as user, add conda to PATH and make it the default interpreter.
@@ -21,6 +23,8 @@ Steps 1-3 below need to be performed only once. If Anaconda is already installed
     pip install .
     ```
 
+For more complete installation instruction, see the [documentation](https://teamncmc.github.io/histoquant/main-getting-started.html#slow-start).
+
 ## Using notebooks
 Some Jupyter notebooks are available in the "docs/demo_notebooks" folder. You can open them in an IDE (such as [vscode](https://code.visualstudio.com/), select the "hq" environment as kernel in the top right) or in the Jupyter web interface (`jupyter notebook` in the terminal, with the "hq" environment activated).
 
@@ -30,7 +34,7 @@ You can generate brain structures outlines coordinates in three projections (cor
 + allen cord 20um : https://arcus.neuropsi.cnrs.fr/s/EoAfMkESzJZG74Q
 
 ## Build the doc
-There is an ongoing effort to make a proper documentation with additional guides and resources. It is not yet hosted online, but you can read it locally by building it yourself :
+To build and look at the documentation offline :
 In [step 5. above](#install), replace the `pip install .` command with :
 ```bash
 pip install .[doc]
@@ -39,7 +43,7 @@ Then, run :
 ```
 mkdocs serve
 ```
-And head to [http://localhost:8000/](http://localhost:8000/) from a web browser.
+Head to [http://localhost:8000/](http://localhost:8000/) from a web browser.
 The documentation is built with [MkDocs](https://www.mkdocs.org/) using the [Material theme](https://squidfunk.github.io/mkdocs-material/). [KaTeX](https://katex.org/) CSS and fonts are embedded instead of using a CDN, and are under a [MIT license](https://opensource.org/license/MIT).
 
 ## Credits
