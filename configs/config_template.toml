@@ -1,0 +1,86 @@
+########################################################################################
+# Configuration file for histoquant package
+# -----------------------------------------
+# This is a TOML file. It maps a key to a value : `key = value`.
+# Each key must exist and be filled. The keys' names can't be modified, except:
+#   - entries in the [channels.names] section and its corresponding [channels.colors] section,
+#   - entries in the [regions.metrics] section.                                                                                   
+#
+# It is strongly advised to NOT modify this template but rather copy it and modify the copy.
+# Useful resources :
+#   - the TOML specification : https://toml.io/en/
+#   - matplotlib colors : https://matplotlib.org/stable/gallery/color/color_demo.html
+#
+# Configuration file part of the python histoquant package.
+# version : 2.1
+########################################################################################
+
+object_type = "Cells"  # name of QuPath base classification (eg. without the ": subclass" part)
+segmentation_tag = "cells"  # type of segmentation, matches directory name, used only in the full pipeline
+
+[atlas]  # information related to the atlas used
+name = "allen_mouse_10um"  # brainglobe-atlasapi atlas name
+type = "brain"  # brain or cord (eg. registration done in ABBA or abba_python)
+midline = 5700  # midline Z coordinates (left/right limit) in microns
+outline_structures = ["root", "CB", "MY", "P"]  # structures to show an outline of in heatmaps
+
+[channels]  # information related to imaging channels
+[channels.names]  # must contain all classifications derived from "object_type"
+"marker+" = "Positive"  # classification name = name to display
+"marker-" = "Negative"
+[channels.colors]  # must have same keys as names' keys
+"marker+" = "#96c896"  # classification name = matplotlib color (either #hex, color name or RGB list)
+"marker-" = "#688ba6"
+
+[hemispheres]  # information related to hemispheres
+[hemispheres.names]
+Left = "Left"  # Left = name to display
+Right = "Right"  # Right = name to display
+[hemispheres.colors]  # must have same keys as names' keys
+Left = "#ff516e"  # Left = matplotlib color (either #hex, color name or RGB list)
+Right = "#960010"  # Right = matplotlib color
+
+[distributions]  # spatial distributions parameters
+stereo = true  # use stereotaxic coordinates (Paxinos, only for brain)
+ap_lim = [-8.0, 0.0]  # bins limits for anterio-posterior
+ap_nbins = 75  # number of bins for anterio-posterior
+dv_lim = [-1.0, 7.0]  # bins limits for dorso-ventral
+dv_nbins = 50  # number of bins for dorso-ventral
+ml_lim = [-5.0, 5.0]  # bins limits for medio-lateral
+ml_nbins = 50  # number of bins for medio-lateral
+hue = "channel"  # color curves with this parameter, must be "hemisphere" or "channel"
+hue_filter = "Left"  # use only a subset of data. If hue=hemisphere : channel name, list of such or "all". If hue=channel : hemisphere name or "both".
+common_norm = true  # use a global normalization for each hue (eg. the sum of areas under all curves is 1)
+[distributions.display]
+show_injection = false  # add a patch showing the extent of injection sites. Uses corresponding channel colors
+cmap = "OrRd"  # matplotlib color map for heatmaps
+cmap_nbins = 50  # number of bins for heatmaps
+cmap_lim = [1, 50]  # color limits for heatmaps
+
+[regions]  # distributions per regions parameters
+base_measurement = "Count"  # the name of the measurement in QuPath to derive others from
+hue = "channel"  # color bars with this parameter, must be "hemisphere" or "channel"
+hue_filter = "Left"  # use only a subset of data. If hue=hemisphere : channel name, list of such or "all". If hue=channel : hemisphere name or "both".
+hue_mirror = false  # plot two hue_filter in mirror instead of discarding the other
+normalize_starter_cells = false  # normalize non-relative metrics by the number of starter cells
+[regions.metrics]  # names of metrics. Do not change the keys !
+"density µm^-2" = "density µm^-2"
+"density mm^-2" = "density mm^-2"
+"coverage index" = "coverage index"
+"relative measurement" = "relative count"
+"relative density" = "relative density"
+[regions.display]
+nregions = 18  # number of regions to display (sorted by max.)
+orientation = "h"  # orientation of the bars ("h" or "v")
+order = "max"  # order the regions by "ontology" or by "max". Set to "max" to provide a custom order
+dodge = true  # enforce the bar not being stacked
+log_scale = false  # use log. scale for metrics
+[regions.display.metrics]  # name of metrics to display
+"count" = "count"  # real_name = display_name, with real_name the "values" in [regions.metrics]
+"density mm^-2" = "density (mm^-2)"
+
+[files]  # full path to information TOML files
+blacklist = "../../atlas/atlas_blacklist.toml"
+fusion = "../../atlas/atlas_fusion.toml"
+outlines = "/data/atlases/allen_mouse_10um_outlines.h5"
+infos = "../../configs/infos_template.toml"

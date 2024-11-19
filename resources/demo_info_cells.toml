@@ -1,0 +1,16 @@
+# TOML file to specify experimental settings of each animals.
+# Syntax should be :
+#   [animalid0]  # animal ID
+#   slice_thickness = 30  # slice thickness in microns
+#   slice_spacing = 60  # spacing between two slices in microns
+#   [animalid0.marker-name]  # [{Animal id}.{segmented channel name}]
+#   starter_cells = 190  # number of starter cells
+#   injection_site = [x, y, z]  # approx. injection site in CCFv3 coordinates
+#
+# --------------------------------------------------------------------------
+[animalid0]
+slice_thickness = 30
+slice_spacing = 120
+[animalid0."marker+"]
+starter_cells = 234
+injection_site = [ 9.39872792950859, 5.716727636720309, 6.686951478953629 ]

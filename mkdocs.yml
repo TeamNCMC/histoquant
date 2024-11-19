@@ -1,0 +1,129 @@
+site_name: histoquant
+repo_url: https://github.com/TeamNCMC/histoquant
+site_description: Quantify histological data
+site_author: Guillaume Le Goc
+copyright: Julien Bouvier lab -- NeuroPSI -- CNRS/University Paris-Saclay UMR 9197
+
+theme:
+  name: material
+  custom_dir: docs/overrides
+  palette:
+  - scheme: default
+    primary: indigo
+    toggle:
+      icon: material/brightness-7
+      name: Switch to dark mode
+  - scheme: slate
+    primary: pink
+    toggle:
+      icon: material/brightness-4
+      name: Switch to light mode
+  features:
+    - navigation.path
+    - navigation.footer
+    - navigation.top
+    - content.code.copy
+    - content.code.select
+    - toc.follow
+
+nav:
+  - index.md
+  - main-getting-started.md
+  - Guides:
+    - guide-install-abba.md
+    - guide-create-pyramids.md
+    - guide-qupath-objects.md
+    - guide-register-abba.md
+    - guide-prepare-qupath.md
+    - guide-pipeline.md
+  - Tips:
+    - tips-formats.md
+    - tips-qupath.md
+    - tips-abba.md
+    - tips-brain-contours.md
+  - main-configuration-files.md
+  - Examples:
+    - main-using-notebooks.md
+    - demo_notebooks/cells_distributions.ipynb
+    - demo_notebooks/fibers_coverage.ipynb
+    - demo_notebooks/density_map.ipynb
+    - demo_notebooks/fibers_length_multi.ipynb
+  - Package reference:
+    - histoquant.config: api-config.md
+    - histoquant.compute: api-compute.md
+    - histoquant.process: api-process.md
+    - histoquant.display: api-display.md
+    - histoquant.utils: api-utils.md
+    - histoquant.io: api-io.md
+    - histoquant.seg: api-seg.md
+  - Scripts reference:
+    - create_pyramids: api-script-pyramids.md
+    - segment_images: api-script-segment.md
+    - qupath_script_runner: api-script-qupath-script-runner.md
+  - main-getting-help.md
+  - main-citing.md
+
+plugins:
+- autorefs
+- search
+- privacy
+- offline
+- mkdocs-jupyter:
+    execute: False  # set to False when writing
+    include_source: True
+- mkdocstrings:
+    default_handler: python
+    handlers:
+      python:
+        import:
+        - https://docs.python.org/3/objects.inv
+        - https://numpy.org/doc/stable/objects.inv
+        - https://docs.scipy.org/doc/scipy/reference/objects.inv
+        - https://pandas.pydata.org/pandas-docs/stable/objects.inv
+        - https://matplotlib.org/stable/objects.inv
+        - https://seaborn.pydata.org/objects.inv
+        options:
+          docstring_style: numpy
+          parameters_headings: true
+          show_symbol_type_heading: true
+          show_symbol_type_toc: true
+          merge_init_into_class: true
+    enable_inventory: false
+- git-revision-date-localized:
+    enable_creation_date: true
+
+markdown_extensions:
+  - attr_list
+  - admonition
+  - def_list
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.highlight
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.keys
+  - pymdownx.arithmatex:
+      generic: true
+      inline_syntax: ['round']
+      block_syntax: ['square', 'begin']
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  
+  - toc:
+      permalink: "#"
+
+extra_javascript:
+  - javascripts/katex.js
+  - https://unpkg.com/katex@0/dist/katex.min.js
+  - https://unpkg.com/katex@0/dist/contrib/auto-render.min.js
+
+extra_css:
+  - stylesheets/extra.css
+  - https://unpkg.com/katex@0/dist/katex.min.css

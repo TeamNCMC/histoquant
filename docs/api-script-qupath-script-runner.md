@@ -1,0 +1,1 @@
+:::scripts.qupath_script_template

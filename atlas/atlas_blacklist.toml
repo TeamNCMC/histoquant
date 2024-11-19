@@ -1,0 +1,22 @@
+# TOML file to list Allen brain regions to ignore during analysis.
+# 
+# It is used to blacklist regions and all descendants regions ("WITH_CHILD").
+# Objects belonging to those regions and their descendants will be discarded.
+# And you can specify an exact region where to remove objects ("EXACT"),
+# descendants won't be affected.
+# Use it to remove noise in CBX, ventricual systems and fiber tracts.
+# Regions are referenced by their exact acronym.
+#
+# Syntax :
+#   [WITH_CHILDS]
+#   members = ["CBX", "fiber tracts", "VS"]
+#
+#   [EXACT]
+#   members = ["CB"]
+
+
+[WITH_CHILDS]
+members = ["CBX", "fiber tracts", "VS"]
+
+[EXACT]
+members = ["CB"]

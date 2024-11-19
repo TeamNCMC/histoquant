@@ -1,0 +1,170 @@
+Image	Object ID	Object type	Name	Classification	Parent	ROI	Centroid X µm	Centroid Y µm	Fibers: Cy5 Length µm	Fibers: DsRed Length µm	Fibers: EGFP Length µm	ID	Side	Parent ID	Num Detections	Num Fibers: Cy5	Num Fibers: DsRed	Num Fibers: EGFP	Area µm^2	Perimeter µm
+mouse1_034.ome.tiff	cef7b74c-335c-464b-8b2f-fd1d173b79fe	Annotation	Root		Root object (Image)	Geometry	5119.9	3753.9	3.1918	0.0	0.0				26429	8260	9202	8967	31254618.4	34207.7
+mouse1_034.ome.tiff	73812c62-f146-4402-8f88-6b071c39e386	Annotation	root	Right: root	Root	Geometry	6728.3	3654.0	10.4437	0.0	0.0	997.0	0.0		6824	5638	473	713	15646415.7	17101.9
+mouse1_034.ome.tiff	af09aeee-f70f-429e-a3db-735a632e935a	Annotation	grey	Right: grey	root	Geometry	6707.3	3550.3	2412.4612	10.9778	10.8034	8.0	0.0	997.0	6021	4893	463	665	14217070.3	42239.5
+mouse1_034.ome.tiff	2af1fd52-255b-4626-a9f7-dd70885e0bdc	Annotation	CB	Right: CB	grey	Geometry	7117.2	2842.0	148.1107	0.0	0.0	512.0	0.0	8.0	137	137	0	0	6634873.9	24600.7
+mouse1_034.ome.tiff	fad1e29c-0112-4e44-88a8-f819ed16cf0b	Annotation	CBX	Right: CBX	CB	Geometry	7127.7	2840.5	55.3464	0.0	0.0	528.0	0.0	512.0	135	135	0	0	6513478.2	25723.0
+mouse1_034.ome.tiff	8b32ab0a-bc41-47a5-a704-68c40ce50019	Annotation	VERM	Right: VERM	CBX	Geometry	6204.4	2850.5	572.5845	77.3377	6.5164	645.0	0.0	528.0	112	112	0	0	3089631.1	16149.0
+mouse1_034.ome.tiff	e6394398-ef9c-4956-9ea8-3594dc253e54	Annotation	CENT	Right: CENT	VERM	Geometry	5897.2	2970.6	0.0	0.0	0.0	920.0	0.0	645.0	105	105	0	0	2038162.6	9662.7
+mouse1_034.ome.tiff	1474d43b-576d-40da-b596-3f4b14b5fff3	Annotation	CENT2	Right: CENT2	CENT	Polygon	5670.7	3120.8	5.0614	211.7876	1729.4634	976.0	0.0	920.0	14	14	0	0	1078425.0	4264.7
+mouse1_034.ome.tiff	ae520434-b7de-4287-a1a3-14937965fb29	Annotation	CENT3	Right: CENT3	CENT	Polygon	6151.8	2802.4	1.3221	0.0	201.0654	984.0	0.0	920.0	91	91	0	0	959954.7	7709.4
+mouse1_034.ome.tiff	844888e4-3459-40da-8379-a6a49fae082d	Annotation	CUL	Right: CUL	VERM	Geometry	6799.7	2617.8	10.1229	0.0	0.0	928.0	0.0	645.0	7	7	0	0	1051468.5	8661.5
+mouse1_034.ome.tiff	8b3c4988-6845-4012-8557-ddec6319ede3	Annotation	CUL4, 5	Right: CUL4, 5	CUL	Geometry	6799.7	2617.8	14.4099	0.0	178.0355	1091.0	0.0	928.0	7	7	0	0	1051468.5	8661.5
+mouse1_034.ome.tiff	a629d7db-3abc-4730-804e-e11b8a7b1d6e	Annotation	HEM	Right: HEM	CBX	Geometry	7961.0	2831.5	134.1155	0.0	0.0	1073.0	0.0	528.0	23	23	0	0	3423847.1	13802.4
+mouse1_034.ome.tiff	5835dfba-4450-4a87-94cd-ebb634c047bd	Annotation	PFL	Right: PFL	HEM	Geometry	8363.7	3911.2	20242.3961	2373.4103	4860.2312	1041.0	0.0	1073.0	8	8	0	0	248346.3	2642.2
+mouse1_034.ome.tiff	8f9e24e6-9261-4615-ad72-f878a8e64830	Annotation	FL	Right: FL	HEM	Polygon	8247.7	4441.7	1.3221	0.0	58.8295	1049.0	0.0	1073.0	0	0	0	0	486939.7	3167.5
+mouse1_034.ome.tiff	a3797b5b-5f9e-4c22-be4c-015be34145db	Annotation	SIM	Right: SIM	HEM	Geometry	7708.9	2369.6	0.0	0.0	296.5385	1007.0	0.0	1073.0	3	3	0	0	2180495.5	9260.0
+mouse1_034.ome.tiff	a3636c98-ef43-4930-92ab-d6f30be3dbbf	Annotation	AN	Right: AN	HEM	Polygon	8571.1	2742.8	1295.747	10.6705	37.2609	1017.0	0.0	1073.0	12	12	0	0	508065.6	3826.8
+mouse1_034.ome.tiff	a4aa2b76-013d-4bc3-b2bc-1323d4692214	Annotation	ANcr1	Right: ANcr1	AN	Polygon	8571.1	2742.8	21451.6626	2373.4103	4860.2312	1056.0	0.0	1017.0	12	12	0	0	508065.6	3826.8
+mouse1_034.ome.tiff	7320294c-da06-4959-9c71-19ed77acab29	Annotation	BS	Right: BS	grey	Geometry	6348.9	4170.1	0.0	25.5027	0.0	343.0	0.0	8.0	5884	4756	463	665	7583294.8	29570.0
+mouse1_034.ome.tiff	4a781a7c-b9a9-44e9-86c5-5a5bc14dbd4f	Annotation	HB	Right: HB	BS	Geometry	6420.9	4829.6	0.0	573.4897	613.5974	1065.0	0.0	343.0	5860	4733	463	664	5857077.5	24655.1
+mouse1_034.ome.tiff	76c10ae9-acbb-4573-8759-5ce08496d14b	Annotation	P	Right: P	HB	Geometry	6309.4	4785.4	843.7783	2545.9565	3527.756	771.0	0.0	1065.0	5808	4724	463	621	5265901.4	19105.0
+mouse1_034.ome.tiff	33629825-70e0-4116-b65e-ef9578f44220	Annotation	P-mot	Right: P-mot	P	Geometry	6013.0	4787.5	6.7983	0.0	0.0	987.0	0.0	771.0	4279	3584	310	385	2469509.4	13409.3
+mouse1_034.ome.tiff	d92f01ae-cdf0-466a-afb1-e8d32d13f21d	Annotation	PCG	Right: PCG	P-mot	Geometry	5712.6	3995.9	0.0	0.0	0.0	898.0	0.0	987.0	41	26	12	3	438073.1	5748.7
+mouse1_034.ome.tiff	9d721efb-fc7e-4049-8706-3be0f6764bba	Annotation	P5	Right: P5	P-mot	Polygon	6560.5	4715.2	10.1229	0.0	0.0	549009215.0	0.0	987.0	381	378	3	0	133371.8	1618.6
+mouse1_034.ome.tiff	966cd0de-dc7f-45da-bad3-0e9a4c69023b	Annotation	SUT	Right: SUT	P-mot	Polygon	6832.5	4312.5	1625.1739	32.4971	13.5415	534.0	0.0	987.0	27	27	0	0	65882.7	1196.0
+mouse1_034.ome.tiff	6e768e2a-bd07-48c2-913e-d97bd6581b40	Annotation	PRNc	Right: PRNc	P-mot	Geometry	5903.5	5160.7	3.5125	0.0	0.0	1093.0	0.0	987.0	3218	2561	284	373	1423091.4	5917.0
+mouse1_034.ome.tiff	c7329509-5d4e-469c-ae73-11f03c989096	Annotation	V	Right: V	P-mot	Polygon	6853.8	4677.4	7.158	0.0	0.0	621.0	0.0	987.0	533	527	5	1	219564.5	1826.7
+mouse1_034.ome.tiff	67053670-0fa3-4311-9a8f-bb8efa339e02	Annotation	DTN	Right: DTN	P-mot	Polygon	5395.5	3931.4	151.0457	98.3741	23.7583	880.0	0.0	987.0	8	0	0	8	132163.6	1322.5
+mouse1_034.ome.tiff	7941f1dd-8c69-45ad-9076-2ce3b27dbbdd	Annotation	I5	Right: I5	P-mot	Polygon	7095.3	4645.1	23495.3419	2410.1945	5144.545	549009227.0	0.0	987.0	3	3	0	0	50433.8	1151.5
+mouse1_034.ome.tiff	6eba602e-6e87-4065-a350-00202a80a5c5	Annotation	Acs5	Right: Acs5	P-mot	Polygon	6457.1	4973.8	15301.6831	1656.4909	3495.2306	549009219.0	0.0	987.0	68	62	6	0	6786.4	305.68
+mouse1_034.ome.tiff	4800ece8-1483-4609-a5a9-28fa4d7e0325	Annotation	P-sat	Right: P-sat	P	Geometry	5578.6	4185.5	91.9438	0.0	0.0	1117.0	0.0	771.0	23	23	0	0	287355.3	3978.1
+mouse1_034.ome.tiff	76b8b9a8-adfd-4fc2-8c8a-89f5ce58f140	Annotation	LDT	Right: LDT	P-sat	Polygon	5928.8	3817.7	9293.9229	38478.4356	39436.4158	162.0	0.0	1117.0	17	17	0	0	115550.5	1229.5
+mouse1_034.ome.tiff	34e36cc8-d494-495c-9f5d-a0fcc38624da	Annotation	NI	Right: NI	P-sat	Polygon	5369.6	4360.6	3.1918	0.0	0.0	604.0	0.0	1117.0	6	6	0	0	134406.7	1969.0
+mouse1_034.ome.tiff	8a497d16-585a-4f0e-9aeb-b2424c9d606b	Annotation	RPO	Right: RPO	P-sat	Polygon	5248.3	4693.8	575.5494	77.3377	6.5164	238.0	0.0	1117.0	0	0	0	0	37418.2	779.68
+mouse1_034.ome.tiff	3117f91c-436a-410d-9998-67a4f55a0f20	Annotation	P-sen	Right: P-sen	P	Geometry	6872.4	4770.1	1083.6199	10.6705	37.2609	1132.0	0.0	771.0	241	222	16	3	1320823.6	11645.9
+mouse1_034.ome.tiff	8fe8fd49-bc1b-4e76-b387-e88e92ceccc8	Annotation	PSV	Right: PSV	P-sen	Polygon	7271.5	4907.5	28.9745	150.0045	0.0	7.0	0.0	1132.0	44	44	0	0	501706.0	3426.2
+mouse1_034.ome.tiff	f9515986-c79b-4703-a6ff-c1edd137a08f	Annotation	SOC	Right: SOC	P-sen	Polygon	6431.5	5968.0	20183.8214	2373.4103	4676.5866	398.0	0.0	1132.0	5	5	0	0	333294.4	2414.9
+mouse1_034.ome.tiff	d41e9dd2-6b40-4058-a98b-100d08b55d41	Annotation	SOCm	Right: SOCm	SOC	Polygon	6175.8	5973.8	11.257	819.385	921.0817	105.0	0.0	398.0	1	1	0	0	78786.2	1073.8
+mouse1_034.ome.tiff	52633aca-3f3f-4610-a9e9-ced65ee6386b	Annotation	SOCl	Right: SOCl	SOC	Polygon	6585.7	5882.4	76.452	0.0	0.0	114.0	0.0	398.0	2	2	0	0	173088.3	1532.6
+mouse1_034.ome.tiff	9fec6668-f837-4513-8eb3-6ae28ab74339	Annotation	POR	Right: POR	SOC	Polygon	6351.0	6144.3	0.0	4.287	23.4926	122.0	0.0	398.0	2	2	0	0	81419.9	1591.2
+mouse1_034.ome.tiff	eccbf960-10a3-4294-a0a4-c211bc6399a3	Annotation	PB	Right: PB	P-sen	Polygon	6762.8	3806.5	219.8988	636.367	2579.1005	867.0	0.0	1132.0	192	173	16	3	485823.3	6384.6
+mouse1_034.ome.tiff	aaa3213f-620c-442a-9759-0924d3960efa	Annotation	KF	Right: KF	PB	Polygon	7281.2	4106.1	39.6564	190.2223	0.0	123.0	0.0	867.0	3	3	0	0	81924.6	1165.8
+mouse1_034.ome.tiff	f5bf21f7-ec0e-4721-941e-13ba24ed9945	Annotation	MY	Right: MY	HB	Geometry	7414.8	5223.2	10726.8153	38489.1061	39482.3835	354.0	0.0	1065.0	52	9	0	43	591244.1	8095.0
+mouse1_034.ome.tiff	603dd90d-1617-4a7a-9ed6-f1950d27c2df	Annotation	MY-sen	Right: MY-sen	MY	Geometry	7576.2	5074.6	0.0	0.0	0.0	386.0	0.0	354.0	39	7	0	32	354959.8	3847.5
+mouse1_034.ome.tiff	f93a6183-02c9-4689-8fbe-86c5a1289d67	Annotation	NTB	Right: NTB	MY-sen	Polygon	5806.1	6015.6	0.0	0.0	6.2896	642.0	0.0	386.0	33	1	0	32	53628.0	994.38
+mouse1_034.ome.tiff	30e77688-54e5-48b1-93d3-12801eae3e9e	Annotation	CN	Right: CN	MY-sen	Polygon	7891.2	4907.1	582.3477	77.3377	6.5164	607.0	0.0	386.0	6	6	0	0	301331.8	2853.2
+mouse1_034.ome.tiff	d1f69305-4116-46bd-b313-6c04ac367429	Annotation	VCO	Right: VCO	CN	Polygon	7891.2	4907.1	34.8579	0.0	0.0	101.0	0.0	607.0	6	6	0	0	301331.8	2853.2
+mouse1_034.ome.tiff	5fb0a041-6c3e-4cec-9ec9-94bed9ccb230	Annotation	MY-sat	Right: MY-sat	MY	Polygon	5209.3	5730.4	292.4402	0.0	209.2223	379.0	0.0	354.0	9	1	0	8	26689.0	1104.5
+mouse1_034.ome.tiff	80076e61-8063-4fa5-9f24-5629ee971c13	Annotation	RM	Right: RM	MY-sat	Polygon	5209.3	5730.4	271.5724	7.2519	0.0	206.0	0.0	379.0	9	1	0	8	26689.0	1104.5
+mouse1_034.ome.tiff	674e3cf6-82d6-446d-aa10-6b972d320822	Annotation	MB	Right: MB	BS	Geometry	6104.4	1932.6	22.315	0.0	0.0	313.0	0.0	343.0	24	23	0	1	1726217.3	6838.6
+mouse1_034.ome.tiff	e66b3163-04c8-4f4d-93ba-29a3acec06fd	Annotation	MBsen	Right: MBsen	MB	Geometry	6078.3	1885.4	879.5644	0.0	0.0	339.0	0.0	313.0	23	22	0	1	1395446.4	5718.8
+mouse1_034.ome.tiff	587f51b2-bbe0-45cb-8be4-97601e3fc608	Annotation	IC	Right: IC	MBsen	Polygon	6078.0	1876.6	0.0	0.0	0.0	4.0	0.0	339.0	23	22	0	1	1388543.6	4756.9
+mouse1_034.ome.tiff	23d5b409-b7c8-41ca-8a8f-60a0fc93ae84	Annotation	ICc	Right: ICc	IC	Polygon	6156.9	2012.2	0.0	0.0	0.0	811.0	0.0	4.0	4	4	0	0	149136.6	1772.3
+mouse1_034.ome.tiff	450787aa-b2da-40e1-968a-fbd98c1bdf29	Annotation	ICd	Right: ICd	IC	Polygon	5647.4	1849.1	2.871	0.0	9.8961	820.0	0.0	4.0	4	4	0	0	407073.2	2581.3
+mouse1_034.ome.tiff	1abd9cb7-fa38-4564-9aa5-8d16e4b3219d	Annotation	ICe	Right: ICe	IC	Geometry	6274.5	1865.8	1.8697	0.0	103.7952	828.0	0.0	4.0	15	14	0	1	832333.8	6403.9
+mouse1_034.ome.tiff	451bc057-2399-46ae-8dbf-c9c75e33320e	Annotation	MEV	Right: MEV	MBsen	Geometry	6137.6	3641.3	10561.8909	1558.5062	3440.7439	460.0	0.0	339.0	0	0	0	0	6902.8	961.88
+mouse1_034.ome.tiff	f660f893-9674-4559-8871-52277f8f22ca	Annotation	VS	Right: VS	root	Polygon	5490.1	3624.4	963.8571	0.0	0.0	73.0	0.0	997.0	10	10	0	0	40354.7	2153.4
+mouse1_034.ome.tiff	366a446c-9788-495a-aac4-8e0a1d89a08c	Annotation	V4	Right: V4	VS	Polygon	5490.1	3624.4	6.3835	0.0	0.0	145.0	0.0	73.0	10	10	0	0	40354.7	2153.4
+mouse1_034.ome.tiff	ad7df64a-8006-4379-86a3-bc0fdf14acf1	Annotation	fiber tracts	Right: fiber tracts	root	Geometry	6978.0	4716.5	11.9926	0.0	103.7952	1009.0	0.0	997.0	793	735	10	48	1387063.9	24345.0
+mouse1_034.ome.tiff	230eadef-f98a-4927-810c-7059676c9156	Annotation	cbf	Right: cbf	fiber tracts	Geometry	7459.8	3815.3	292.4402	0.0	209.2223	960.0	0.0	1009.0	687	674	9	4	686128.4	12865.7
+mouse1_034.ome.tiff	ae125bbb-1d70-416c-8d45-e0aee253375d	Annotation	arb	Right: arb	cbf	Geometry	7722.4	3617.6	0.0	0.0	0.0	728.0	0.0	960.0	5	5	0	0	366269.8	10587.8
+mouse1_034.ome.tiff	c7f39e97-0667-4e90-99b8-1467d372323b	Annotation	cbp	Right: cbp	cbf	Geometry	7159.1	4041.8	37.2998	0.0	0.0	752.0	0.0	960.0	682	669	9	4	319858.6	5729.5
+mouse1_034.ome.tiff	239e2f5f-1bc3-44d5-bbc5-83817638de3a	Annotation	scp	Right: scp	cbp	Geometry	6747.4	4123.6	0.0	100.3289	248.6067	326.0	0.0	752.0	679	666	9	4	178721.2	4212.9
+mouse1_034.ome.tiff	a3dda459-8ef7-41ab-8040-25ae126060e9	Annotation	sctv	Right: sctv	scp	Geometry	6821.9	5053.2	1.8697	0.0	0.0	866.0	0.0	326.0	3	3	0	0	46865.8	2022.0
+mouse1_034.ome.tiff	9716cb78-40c7-4258-98e1-76ec1c47119a	Annotation	mcp	Right: mcp	cbp	Polygon	7680.6	3938.2	0.0	15.0515	0.0	78.0	0.0	752.0	3	3	0	0	141137.4	1516.6
+mouse1_034.ome.tiff	0dd9187f-bc83-4172-96ed-eb2780523d79	Annotation	cm	Right: cm	fiber tracts	Geometry	6696.6	5564.5	3.9662	0.0	0.0	967.0	0.0	1009.0	97	55	1	41	538349.8	9842.1
+mouse1_034.ome.tiff	2727348a-961c-4f1c-a2e3-039be908647a	Annotation	Vn	Right: Vn	cm	Geometry	7430.3	5309.7	84.4881	0.0	0.0	901.0	0.0	967.0	1	1	0	0	214457.2	2994.1
+mouse1_034.ome.tiff	9a6d09e3-53b1-498d-9cd5-b2ff199a58e7	Annotation	sV	Right: sV	Vn	Geometry	7430.3	5309.7	41.7475	0.0	5.6091	229.0	0.0	901.0	1	1	0	0	214457.2	2994.1
+mouse1_034.ome.tiff	ea99d68b-0785-465c-bfad-3742d1bb2b7d	Annotation	sptV	Right: sptV	sV	Geometry	7430.3	5309.7	0.0	67.4998	232.8889	794.0	0.0	229.0	1	1	0	0	214457.2	2994.1
+mouse1_034.ome.tiff	2b326962-6fa8-464f-9576-542cd6e301da	Annotation	drt	Right: drt	cm	Polygon	5353.7	5937.8	2.871	0.0	9.8961	792.0	0.0	967.0	4	0	1	3	41722.1	783.05
+mouse1_034.ome.tiff	e7d734db-00dd-4ef8-8bab-aa2e2c6f0299	Annotation	cett	Right: cett	drt	Polygon	5353.7	5937.8	41.5318	1832.2517	935.8495	932.0	0.0	792.0	4	0	1	3	41722.1	783.05
+mouse1_034.ome.tiff	e424eaed-492d-4fc5-9d57-1660f48e5a6e	Annotation	ml	Right: ml	cett	Polygon	5353.7	5937.8	71.2443	0.0	0.0	697.0	0.0	932.0	4	0	1	3	41722.1	783.05
+mouse1_034.ome.tiff	1b8b7656-d5ad-4d72-9073-532df7d006c6	Annotation	VIIn	Right: VIIn	cm	Polygon	6861.4	5527.3	215.385	636.367	2081.4966	798.0	0.0	967.0	0	0	0	0	18284.4	539.98
+mouse1_034.ome.tiff	912e4b26-9326-4925-90da-883a95cea133	Annotation	VIIIn	Right: VIIIn	cm	Geometry	6352.7	5778.4	0.0	0.0	0.0	933.0	0.0	967.0	92	54	0	38	249640.7	7344.3
+mouse1_034.ome.tiff	f36771dc-4faf-4abf-85df-51c177b806ce	Annotation	vVIIIn	Right: vVIIIn	VIIIn	Geometry	7693.7	5244.7	75.6153	62.1534	6.9311	413.0	0.0	933.0	0	0	0	0	83402.3	2104.9
+mouse1_034.ome.tiff	007dbbdb-62b1-4956-873c-1c6244ae0365	Annotation	cVIIIn	Right: cVIIIn	VIIIn	Geometry	5679.9	6046.1	1009.7291	0.0	0.0	948.0	0.0	933.0	92	54	0	38	166238.5	5239.4
+mouse1_034.ome.tiff	f5880a2a-70f6-4329-b0c1-932c03528441	Annotation	tb	Right: tb	cVIIIn	Geometry	5679.9	6046.1	0.0	0.0	0.0	841.0	0.0	948.0	92	54	0	38	166238.5	5239.4
+mouse1_034.ome.tiff	d4abffc8-32b6-4c7e-83cc-c15588dd13bd	Annotation	IIIn	Right: IIIn	cm	Polygon	5400.0	4606.0	1.3221	0.0	58.8295	832.0	0.0	967.0	0	0	0	0	14245.3	489.27
+mouse1_034.ome.tiff	4f24094b-9fab-4dc8-a19f-edbe7fc28c9e	Annotation	mlf	Right: mlf	IIIn	Polygon	5400.0	4606.0	6.2896	0.0	0.0	62.0	0.0	832.0	0	0	0	0	14245.3	489.27
+mouse1_034.ome.tiff	0c150de9-2947-4908-9e5f-942464083d61	Annotation	lfbs	Right: lfbs	fiber tracts	Polygon	5568.8	6179.3	1009.5818	1104.4555	160.4402	983.0	0.0	1009.0	0	0	0	0	68376.6	1137.1
+mouse1_034.ome.tiff	475d0913-4073-4aa2-afc7-eea367722f63	Annotation	cst	Right: cst	lfbs	Polygon	5568.8	6179.3	1.3221	0.0	201.0654	784.0	0.0	983.0	0	0	0	0	68376.6	1137.1
+mouse1_034.ome.tiff	a27b81ac-5079-44a1-adec-835c3efaeac6	Annotation	py	Right: py	cst	Polygon	5568.8	6179.3	7.158	0.0	0.0	190.0	0.0	784.0	0	0	0	0	68376.6	1137.1
+mouse1_034.ome.tiff	d6be69de-2607-4432-a27d-f4023fc815ca	Annotation	eps	Right: eps	fiber tracts	Geometry	6099.5	5372.1	195.798	0.0	0.0	1000.0	0.0	1009.0	9	6	0	3	94209.2	2059.5
+mouse1_034.ome.tiff	f39f8976-537a-4f8a-9333-91d7d1d94488	Annotation	rust	Right: rust	eps	Polygon	6861.5	5806.2	2.6441	0.0	0.0	863.0	0.0	1000.0	6	6	0	0	41940.6	955.66
+mouse1_034.ome.tiff	f2817264-b077-4c82-9c51-c4a12faadbb7	Annotation	tsp	Right: tsp	eps	Polygon	5488.2	5023.7	57.1081	0.0	0.0	877.0	0.0	1000.0	3	0	0	3	52268.6	1103.9
+mouse1_034.ome.tiff	118cc9f7-a58a-45f0-8e44-099dacb33a3c	Annotation	tspc	Right: tspc	tsp	Polygon	5488.2	5023.7	1.3221	29.4743	0.0	1043.0	0.0	877.0	3	0	0	3	52268.6	1103.9
+mouse1_034.ome.tiff	44f1d883-24c7-404f-b569-054fa1b1752a	Annotation	root	Left: root	Root	Geometry	3507.5	3854.1	1410.3479	889.6781	65.0311	997.0	0.0		19605	2622	8729	8254	15608202.7	17105.8
+mouse1_034.ome.tiff	fc6ef280-069f-4c46-a059-cd7e39bad2c1	Annotation	grey	Left: grey	root	Geometry	3520.2	3753.1	1205.5271	0.0	0.0	8.0	0.0	997.0	18111	2360	8112	7639	14192805.3	42446.9
+mouse1_034.ome.tiff	8ced5377-29fe-4d00-a4f2-8031383b63ac	Annotation	CB	Left: CB	grey	Geometry	3049.7	3119.7	0.0	0.0	0.0	512.0	0.0	8.0	262	245	3	14	6625839.0	25049.6
+mouse1_034.ome.tiff	10b20c4f-b33c-4be9-9b70-c964c4e44b93	Annotation	CBX	Left: CBX	CB	Geometry	3039.1	3119.7	661.4611	48.6739	12.1805	528.0	0.0	512.0	237	221	3	13	6503438.5	26087.2
+mouse1_034.ome.tiff	0f80d4ad-6a68-40d0-ba3c-cb41ead1042a	Annotation	VERM	Left: VERM	CBX	Geometry	3964.8	2955.8	84.4881	0.0	0.0	645.0	0.0	528.0	197	181	3	13	3068284.0	16269.6
+mouse1_034.ome.tiff	6eaabb29-e259-4f8a-9713-feb90a002e0d	Annotation	CENT	Left: CENT	VERM	Geometry	4284.1	3037.0	106.1315	680.2297	3718.0414	920.0	0.0	645.0	192	176	3	13	2026180.3	9772.4
+mouse1_034.ome.tiff	71050aec-6ce7-444f-8dee-bfc9c8dae6f8	Annotation	CENT2	Left: CENT2	CENT	Polygon	4532.9	3159.3	20198.2313	2373.4103	4854.6221	976.0	0.0	920.0	42	26	3	13	1063617.7	4256.4
+mouse1_034.ome.tiff	fc5d75ff-1b4e-4743-b2a3-adb5f8051939	Annotation	CENT3	Left: CENT3	CENT	Polygon	4009.2	2902.3	1861.0858	17.6016	0.0	984.0	0.0	920.0	151	151	0	0	962347.2	7818.6
+mouse1_034.ome.tiff	ffd7cb34-19b6-47ae-9d51-fdd8c6d1d386	Annotation	CUL	Left: CUL	VERM	Geometry	3344.1	2798.0	168.4226	383.0778	44.5517	928.0	0.0	645.0	5	5	0	0	1042103.7	8731.8
+mouse1_034.ome.tiff	f94a2989-0db7-40d1-82bb-43b1493c415b	Annotation	CUL4, 5	Left: CUL4, 5	CUL	Geometry	3344.1	2798.0	11.257	0.0	0.0	1091.0	0.0	928.0	5	5	0	0	1042103.7	8731.8
+mouse1_034.ome.tiff	80575eb0-8c2b-47e8-990c-2220abe053a7	Annotation	HEM	Left: HEM	CBX	Geometry	2212.1	3266.1	0.0	0.0	38.0574	1073.0	0.0	528.0	40	40	0	0	3435154.5	14142.9
+mouse1_034.ome.tiff	8a9d16b9-b1c4-41a0-81ea-fe201225dbee	Annotation	PFL	Left: PFL	HEM	Geometry	1917.9	4366.5	79.755	0.0	0.0	1041.0	0.0	1073.0	0	0	0	0	264328.5	2644.3
+mouse1_034.ome.tiff	e69f6830-51a0-4083-9556-ebbcc854aa15	Annotation	FL	Left: FL	HEM	Polygon	2133.5	4924.4	571.2624	48.6739	12.1805	1049.0	0.0	1073.0	0	0	0	0	559422.3	3332.2
+mouse1_034.ome.tiff	eb5dc273-c86b-43cc-be4c-98fee331dcf7	Annotation	SIM	Left: SIM	HEM	Geometry	2416.3	2700.6	0.0	100.3289	248.6067	1007.0	0.0	1073.0	39	39	0	0	2112173.2	9400.4
+mouse1_034.ome.tiff	f1a3e5ab-2f37-41d7-96f2-096c37d320b8	Annotation	AN	Left: AN	HEM	Polygon	1592.2	3217.5	29.8667	0.0	0.0	1017.0	0.0	1073.0	1	1	0	0	499230.5	3839.2
+mouse1_034.ome.tiff	02f59649-41ad-44dc-9cd8-b26b88403024	Annotation	ANcr1	Left: ANcr1	AN	Polygon	1592.2	3217.5	41.5318	1817.2003	935.8495	1056.0	0.0	1017.0	1	1	0	0	499230.5	3839.2
+mouse1_034.ome.tiff	7936494c-8d13-45e8-8fab-ce6753940316	Annotation	BS	Left: BS	grey	Geometry	3932.1	4307.8	33.9445	0.0	0.0	343.0	0.0	8.0	17849	2115	8109	7625	7567557.0	29513.1
+mouse1_034.ome.tiff	8d366662-b005-482e-bfe2-be5551b0b863	Annotation	HB	Left: HB	BS	Geometry	3910.7	4955.2	11.257	573.4897	613.5974	1065.0	0.0	343.0	17810	2076	8109	7625	5880703.9	24580.3
+mouse1_034.ome.tiff	8ed28fa4-a36b-4efa-b799-4418501b31a5	Annotation	P	Left: P	HB	Geometry	4014.5	4886.1	32.9987	0.0	0.0	771.0	0.0	1065.0	17345	2071	7870	7404	5264401.1	19244.3
+mouse1_034.ome.tiff	ed348978-9fc9-47d2-b4f5-ea1bc95ce59a	Annotation	P-mot	Left: P-mot	P	Geometry	4315.4	4864.0	3109.9029	25827.15	19747.6086	987.0	0.0	771.0	13208	1370	5866	5972	2426603.8	13479.1
+mouse1_034.ome.tiff	4dabbb29-295a-4920-8cb1-1723ae9e713a	Annotation	PCG	Left: PCG	P-mot	Geometry	4561.1	4032.6	41.5318	1817.2003	935.8495	898.0	0.0	987.0	919	32	144	743	428519.2	5672.9
+mouse1_034.ome.tiff	439b3729-7b18-4d55-aed2-5f246882c59d	Annotation	P5	Left: P5	P-mot	Polygon	3867.4	4853.4	6223.0397	29149.389	30806.0275	549009215.0	0.0	987.0	407	270	131	6	137636.2	1709.5
+mouse1_034.ome.tiff	34b27501-b1d7-4710-889f-9e32c5f57ca3	Annotation	SUT	Left: SUT	P-mot	Polygon	3509.3	4468.1	0.0	0.0	6.2896	534.0	0.0	987.0	129	45	69	15	76967.3	1282.1
+mouse1_034.ome.tiff	1b2cd990-5cae-468f-9f9b-1de43b502029	Annotation	PRNc	Left: PRNc	P-mot	Geometry	4463.8	5241.7	4.381	154.0889	7138.9907	1093.0	0.0	987.0	9287	719	5267	3301	1337609.0	5881.9
+mouse1_034.ome.tiff	eb0987f0-801a-4c37-a167-444ee4971e47	Annotation	V	Left: V	P-mot	Polygon	3567.3	4859.7	100.7631	0.0	0.0	621.0	0.0	987.0	468	267	184	17	249433.0	1967.8
+mouse1_034.ome.tiff	4439d21c-94b6-4c52-ab1d-e65dd61353cc	Annotation	DTN	Left: DTN	P-mot	Polygon	4855.1	3947.2	0.0	0.0	296.5385	880.0	0.0	987.0	1925	3	35	1887	128852.3	1301.5
+mouse1_034.ome.tiff	2cedf1a5-beec-458d-a668-af075d49f997	Annotation	I5	Left: I5	P-mot	Polygon	3317.3	4874.8	11.257	0.0	0.0	549009227.0	0.0	987.0	46	10	36	0	61109.9	1311.3
+mouse1_034.ome.tiff	0ab27996-84ec-4a6e-992f-9247dc6d0549	Annotation	Acs5	Left: Acs5	P-mot	Polygon	3983.5	5115.3	2.9649	0.0	0.0	549009219.0	0.0	987.0	24	24	0	0	6342.6	287.97
+mouse1_034.ome.tiff	1e1c7546-1190-4e89-8fd1-d747d221e20b	Annotation	P-sat	Left: P-sat	P	Geometry	4709.5	4211.8	40.7573	0.0	5.6091	1117.0	0.0	771.0	447	6	83	358	281958.0	3906.9
+mouse1_034.ome.tiff	aade2ff8-10e8-423f-8fce-1872a6cd5101	Annotation	LDT	Left: LDT	P-sat	Polygon	4330.6	3865.1	1209.2665	0.0	0.0	162.0	0.0	1117.0	22	3	2	17	113515.5	1216.4
+mouse1_034.ome.tiff	0c86b0d1-9309-4bbe-b69d-f586e9654e8b	Annotation	NI	Left: NI	P-sat	Polygon	4936.5	4375.6	0.0	0.0	36.7522	604.0	0.0	1117.0	368	3	58	307	132143.2	1918.9
+mouse1_034.ome.tiff	f0bc495a-6636-40f8-861e-cb1943354075	Annotation	RPO	Left: RPO	P-sat	Polygon	5068.2	4701.3	1076.4619	10.6705	37.2609	238.0	0.0	1117.0	58	0	23	35	36279.9	771.51
+mouse1_034.ome.tiff	e50582e7-cb4b-454a-886e-f3f11b266108	Annotation	P-sen	Left: P-sen	P	Geometry	3464.9	4951.7	0.0	4.287	23.4926	1132.0	0.0	771.0	597	272	285	40	1434102.2	12115.5
+mouse1_034.ome.tiff	5c055ef1-7151-4875-b333-c6a5282ea44c	Annotation	PSV	Left: PSV	P-sen	Polygon	3136.7	5129.3	215.385	636.367	2081.4966	7.0	0.0	1132.0	59	23	36	0	533257.3	3545.4
+mouse1_034.ome.tiff	f79594ea-babd-4029-9c8a-8a4beefe5d40	Annotation	SOC	Left: SOC	P-sen	Polygon	3911.0	6080.3	13.1612	0.0	0.0	398.0	0.0	1132.0	134	26	97	11	378288.7	2599.7
+mouse1_034.ome.tiff	16e92dcc-8313-4389-b7be-b90912e17f21	Annotation	SOCm	Left: SOCm	SOC	Polygon	4191.8	6063.1	73.4655	0.0	0.0	105.0	0.0	398.0	9	0	9	0	94227.3	1190.0
+mouse1_034.ome.tiff	41b5cffb-e63a-4999-95a1-1177295d02ba	Annotation	SOCl	Left: SOCl	SOC	Polygon	3726.6	6001.9	0.0	0.0	38.0574	114.0	0.0	398.0	53	26	22	5	185122.6	1587.0
+mouse1_034.ome.tiff	cfe8b6f2-26e1-4cd6-8574-a71463ffb461	Annotation	POR	Left: POR	SOC	Polygon	3988.6	6243.5	1432.8924	10.6705	45.9678	122.0	0.0	398.0	72	0	66	6	98938.7	1818.9
+mouse1_034.ome.tiff	423537b6-fa51-448e-b63a-67d60ef84368	Annotation	PB	Left: PB	P-sen	Polygon	3477.0	3953.5	55.3464	0.0	0.0	867.0	0.0	1132.0	404	223	152	29	522556.3	6604.8
+mouse1_034.ome.tiff	db4d0324-807c-4fd0-972b-be3ac79b3af0	Annotation	KF	Left: KF	PB	Polygon	2990.0	4318.6	816.9116	594.83	98.4358	123.0	0.0	867.0	9	1	8	0	95171.3	1262.1
+mouse1_034.ome.tiff	11c9d678-3272-4d4a-8d98-8b60924bca3a	Annotation	MY	Left: MY	HB	Geometry	3024.7	5545.0	153.0138	319.4033	62.0044	354.0	0.0	1065.0	465	5	239	221	616349.5	8091.5
+mouse1_034.ome.tiff	4004a31e-0611-4b16-ac62-360259d35223	Annotation	MY-sen	Left: MY-sen	MY	Geometry	2867.1	5437.4	11573.4646	41038.3747	43020.0355	386.0	0.0	354.0	324	5	168	151	390148.9	4053.7
+mouse1_034.ome.tiff	aa7099bd-1548-4fbd-8a2e-8b5139f96161	Annotation	NTB	Left: NTB	MY-sen	Polygon	4605.5	6089.5	1294.1163	1065.1601	80.2087	642.0	0.0	386.0	319	0	168	151	59069.4	1033.3
+mouse1_034.ome.tiff	dbeb03b8-45d4-4bcb-94aa-1433d3b2ec02	Annotation	CN	Left: CN	MY-sen	Polygon	2556.9	5321.1	1.8697	0.0	0.0	607.0	0.0	386.0	5	5	0	0	331079.6	3020.4
+mouse1_034.ome.tiff	7d076dc7-c713-417e-b4ad-8430d90638cf	Annotation	VCO	Left: VCO	CN	Polygon	2556.9	5321.1	118.0722	10.6705	37.2609	101.0	0.0	607.0	5	5	0	0	331079.6	3020.4
+mouse1_034.ome.tiff	c34e48ca-09b4-4fb3-a428-2c9bf6816c35	Annotation	MY-sat	Left: MY-sat	MY	Polygon	5156.4	5734.1	115.318	0.0	0.0	379.0	0.0	354.0	74	0	18	56	26819.3	1104.6
+mouse1_034.ome.tiff	237ad7b3-d192-4a28-a0ed-ffcd6497e4d5	Annotation	RM	Left: RM	MY-sat	Polygon	5156.4	5734.1	13.9951	0.0	0.0	206.0	0.0	379.0	74	0	18	56	26819.3	1104.6
+mouse1_034.ome.tiff	c1ffd316-4c8d-4e0b-9f61-086638b4f4e5	Annotation	MB	Left: MB	BS	Geometry	4006.5	2050.7	0.0	0.0	6.2896	313.0	0.0	343.0	39	39	0	0	1686853.1	6803.1
+mouse1_034.ome.tiff	bb9ceb46-f5ac-45a6-ac72-fcfe08fe40a7	Annotation	MBsen	Left: MBsen	MB	Geometry	4028.8	2002.5	1664.5561	32.4971	13.5415	339.0	0.0	313.0	31	31	0	0	1363324.1	5666.9
+mouse1_034.ome.tiff	b3ba0681-4430-4c92-8fc3-27dd94c7492b	Annotation	IC	Left: IC	MBsen	Polygon	4028.4	1994.3	44.1648	0.0	5.6091	4.0	0.0	339.0	22	22	0	0	1356691.3	4731.7
+mouse1_034.ome.tiff	64037355-c90a-4a3b-90e7-61ea34cddb17	Annotation	ICc	Left: ICc	IC	Polygon	3955.5	2135.1	3.7394	0.0	0.0	811.0	0.0	4.0	2	2	0	0	145154.3	1763.4
+mouse1_034.ome.tiff	e0c48dd9-e23d-4ab6-96cf-0a214586dbef	Annotation	ICd	Left: ICd	IC	Polygon	4456.8	1917.6	0.0	4.287	23.4926	820.0	0.0	4.0	6	6	0	0	401430.1	2565.9
+mouse1_034.ome.tiff	4b638c6a-d7a8-44e6-8bc7-54cc0badb8c3	Annotation	ICe	Left: ICe	IC	Geometry	3829.1	2007.0	35068.8065	43448.5692	48164.5806	828.0	0.0	4.0	14	14	0	0	810107.0	6361.2
+mouse1_034.ome.tiff	bc69e13f-0d8a-40b7-9c74-d5cb349938ea	Annotation	MEV	Left: MEV	MBsen	Geometry	4114.4	3696.5	0.0	0.0	0.0	460.0	0.0	339.0	9	9	0	0	6632.8	935.15
+mouse1_034.ome.tiff	8367f3e2-811f-4f84-9313-38a7e66c7d5e	Annotation	VS	Left: VS	root	Polygon	4740.0	3645.8	21.4739	0.0	0.0	73.0	0.0	997.0	4	1	0	3	39598.6	2106.8
+mouse1_034.ome.tiff	56b01b81-6e64-4a6f-960b-a3072baf1c5b	Annotation	V4	Left: V4	VS	Polygon	4740.0	3645.8	5.8359	8.0264	67.7546	145.0	0.0	73.0	4	1	0	3	39598.6	2106.8
+mouse1_034.ome.tiff	cf2aa96f-f1d0-4225-b2b7-a9e9d2a89571	Annotation	fiber tracts	Left: fiber tracts	root	Geometry	3341.5	4901.8	292.4402	0.0	209.2223	1009.0	0.0	997.0	1490	261	617	612	1374243.4	24599.7
+mouse1_034.ome.tiff	13193879-2acb-4e26-b243-9cc65a2ab165	Annotation	cbf	Left: cbf	fiber tracts	Geometry	2782.2	4080.8	1.3221	0.0	201.0654	960.0	0.0	1009.0	245	217	27	1	713846.9	13221.3
+mouse1_034.ome.tiff	45a87fae-fd8a-44ca-ba4d-7b929572e52b	Annotation	arb	Left: arb	cbf	Geometry	2507.5	3944.7	215.385	636.367	2081.4966	728.0	0.0	960.0	1	1	0	0	378335.9	10899.7
+mouse1_034.ome.tiff	d43aa40b-86e8-4e7f-bd0c-54922aa205b1	Annotation	cbp	Left: cbp	cbf	Geometry	3092.1	4234.2	0.0	0.0	0.0	752.0	0.0	960.0	244	216	27	1	335511.0	5811.7
+mouse1_034.ome.tiff	ea1c9e49-42ef-4c40-95ee-bfabd740f82a	Annotation	scp	Left: scp	cbp	Geometry	3502.4	4239.1	2.9649	0.0	0.0	326.0	0.0	752.0	243	215	27	1	188768.4	4265.6
+mouse1_034.ome.tiff	25065e1d-5080-4781-9119-9682585767f8	Annotation	sctv	Left: sctv	scp	Geometry	3435.1	5175.8	29.8667	0.0	38.0574	866.0	0.0	326.0	0	0	0	0	47599.4	2000.7
+mouse1_034.ome.tiff	a1a89516-4292-45da-a2bd-c770811b846a	Annotation	mcp	Left: mcp	cbp	Polygon	2564.3	4227.9	3.1918	0.0	0.0	78.0	0.0	752.0	1	1	0	0	146742.6	1546.1
+mouse1_034.ome.tiff	58a25ba1-0f8f-480a-8fdf-1b812682f40c	Annotation	cm	Left: cm	fiber tracts	Geometry	3779.3	5785.3	1631.5574	32.4971	13.5415	967.0	0.0	1009.0	666	33	186	447	506912.7	9791.7
+mouse1_034.ome.tiff	b98b3610-f0d5-4c34-b860-98bd889b685f	Annotation	Vn	Left: Vn	cm	Geometry	2992.7	5596.4	1988.7327	36.7841	284.3138	901.0	0.0	967.0	1	1	0	0	187279.7	2743.0
+mouse1_034.ome.tiff	181856ea-d459-41a8-99f1-c14eab9fff2f	Annotation	sV	Left: sV	Vn	Geometry	2992.7	5596.4	0.9902	0.0	0.0	229.0	0.0	901.0	1	1	0	0	187279.7	2743.0
+mouse1_034.ome.tiff	9ef7017b-434f-440d-a312-7729282c0636	Annotation	sptV	Left: sptV	sV	Geometry	2992.7	5596.4	294.3099	4.287	232.7149	794.0	0.0	229.0	1	1	0	0	187279.7	2743.0
+mouse1_034.ome.tiff	7d639dea-14e2-4f03-82df-4a9e6bdc67bc	Annotation	drt	Left: drt	cm	Polygon	5043.8	5962.7	9201.9791	38478.4356	39436.4158	792.0	0.0	967.0	37	1	0	36	41594.1	785.69
+mouse1_034.ome.tiff	8bab7dac-3d87-4d15-adbb-ee8b35fbaa69	Annotation	cett	Left: cett	drt	Polygon	5043.8	5962.7	952.6211	0.0	0.0	932.0	0.0	792.0	37	1	0	36	41594.1	785.69
+mouse1_034.ome.tiff	0fb845f9-cb1d-4585-a53d-3ab6fbdef053	Annotation	ml	Left: ml	cett	Polygon	5043.8	5962.7	1.8697	0.0	0.0	697.0	0.0	932.0	37	1	0	36	41594.1	785.69
+mouse1_034.ome.tiff	207621d9-eba3-45ed-b84c-f196afd474ef	Annotation	VIIn	Left: VIIn	cm	Polygon	3545.1	5712.3	13.1818	0.0	0.0	798.0	0.0	967.0	0	0	0	0	10808.8	560.38
+mouse1_034.ome.tiff	4b515f3d-9d3c-49ca-8cf4-6270230b5289	Annotation	VIIIn	Left: VIIIn	cm	Geometry	4101.1	5961.3	21.3066	0.0	5.6091	933.0	0.0	967.0	570	31	186	353	253554.1	7590.1
+mouse1_034.ome.tiff	86c8778f-b4c7-4ec9-ba91-e96d96538287	Annotation	vVIIIn	Left: vVIIIn	VIIIn	Geometry	2766.2	5625.8	211.0318	0.0	0.0	413.0	0.0	933.0	0	0	0	0	77665.5	2055.7
+mouse1_034.ome.tiff	0c7525ef-635c-40d8-a7e5-6aa52fe9ed51	Annotation	cVIIIn	Left: cVIIIn	VIIIn	Geometry	4690.6	6109.5	1.9681	195.5265	38.2461	948.0	0.0	933.0	570	31	186	353	175888.5	5534.4
+mouse1_034.ome.tiff	2d343c44-f5e9-416f-8043-72881cf4e432	Annotation	tb	Left: tb	cVIIIn	Geometry	4690.6	6109.5	10.8973	287.0891	2024.1863	841.0	0.0	948.0	570	31	186	353	175888.5	5534.4
+mouse1_034.ome.tiff	58777bad-a9da-47bd-8a3c-de30f74bc3c6	Annotation	IIIn	Left: IIIn	cm	Polygon	4921.5	4625.4	0.0	0.0	0.0	832.0	0.0	967.0	58	0	0	58	13676.1	482.15
+mouse1_034.ome.tiff	1b75ffa9-78d4-47b7-aee4-9d65b5c1432c	Annotation	mlf	Left: mlf	IIIn	Polygon	4921.5	4625.4	1.0952	0.0	0.0	62.0	0.0	832.0	58	0	0	58	13676.1	482.15
+mouse1_034.ome.tiff	62523cef-d5c2-4698-8913-841a447860b9	Annotation	lfbs	Left: lfbs	fiber tracts	Polygon	4843.8	6242.1	1.0952	0.0	0.0	983.0	0.0	1009.0	1	0	0	1	68441.2	1123.8
+mouse1_034.ome.tiff	4a0e7a02-ec6e-49d1-acdc-61d66562825d	Annotation	cst	Left: cst	lfbs	Polygon	4843.8	6242.1	212.1271	0.0	0.0	784.0	0.0	983.0	1	0	0	1	68441.2	1123.8
+mouse1_034.ome.tiff	f4138a5d-2161-42d8-b6a7-a3917ed0af02	Annotation	py	Left: py	cst	Polygon	4843.8	6242.1	3.7394	0.0	0.0	190.0	0.0	784.0	1	0	0	1	68441.2	1123.8
+mouse1_034.ome.tiff	2bd593bc-77b2-4e37-b68e-5d378679a7f2	Annotation	eps	Left: eps	fiber tracts	Geometry	4218.4	5449.0	9190.7221	37659.0506	38515.3341	1000.0	0.0	1009.0	578	11	404	163	85042.6	2018.4
+mouse1_034.ome.tiff	8f92e212-a58b-4cd4-b084-b76d08dab3b0	Annotation	rust	Left: rust	eps	Polygon	3432.2	5954.3	0.0	0.0	0.0	863.0	0.0	1000.0	3	0	3	0	37236.6	973.54
+mouse1_034.ome.tiff	ffa4ead6-210b-437f-ab99-20ade7a8e818	Annotation	tsp	Left: tsp	eps	Polygon	4830.8	5055.5	0.0	0.0	0.0	877.0	0.0	1000.0	575	11	401	163	47806.0	1044.9
+mouse1_034.ome.tiff	bdd4f2ac-08c7-489b-86dc-8a30518f5294	Annotation	tspc	Left: tspc	tsp	Polygon	4830.8	5055.5	57.1081	0.0	0.0	1043.0	0.0	877.0	575	11	401	163	47806.0	1044.9

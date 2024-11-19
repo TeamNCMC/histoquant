@@ -1,0 +1,59 @@
+[project]
+name = "histoquant"
+version = "2024.11.19"
+authors = [{ name = "Guillaume Le Goc", email = "g.legoc@posteo.org" }]
+description = "Quantification of objects in histological slices"
+readme = "README.md"
+requires-python = ">=3.12"
+
+license = { text = "GPLv3" }
+
+classifiers = ["Programming Language :: Python :: 3.12"]
+
+dependencies = [
+  "brainglobe-atlasapi>=2.0.7",
+  "brainglobe-heatmap>=0.5.4",
+  "brainrender>=2.1.14",
+  "geojson>=3.1.0",
+  "h5py>=3.11",
+  "ipykernel",
+  "ipympl",
+  "ipywidgets",
+  "matplotlib>=3.9.0",
+  "notebook",
+  "numpy>=2",
+  "orjson>=3.10.3",
+  "pandas[performance]>2.2.2",
+  "paquo>=0.8.0",
+  "scikit-image>0.22.0",
+  "seaborn>=0.13.2",
+  "shapely>=2.0.4",
+  "skan>=0.12.0",
+  "tifffile>=2024.4.24",
+  "tqdm",
+  "typer",
+]
+
+[project.optional-dependencies]
+doc = [
+  "mkdocs",
+  "mkdocstrings",
+  "mkdocstrings-python",
+  "mkdocs-material",
+  "mkdocs-jupyter",
+  "mkdocs-git-revision-date-localized-plugin",
+]
+
+[project.urls]
+"Source Code" = "https://github.com/TeamNCMC/histoquant"
+
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.ruff]
+line-length = 88
+extend-include = ["*.ipynb"]
+
+[tool.setuptools.packages.find]
+include = ["histoquant"]

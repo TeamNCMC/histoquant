@@ -1,0 +1,18 @@
+# TOML file to determine which brain regions should be merged together.
+# Regions are referenced by their exact acronym.
+# The syntax should be the following :
+# 
+#   [MY]
+#   name = "Medulla"  # new or existing full name
+#   acronym = "MY"  # new or existing acronym
+#   members = ["MY-mot", "MY-sat"]  # existing Allen Brain acronyms that should belong to the new region
+#
+# Then, regions labelled "MY-mot" and "MY-sat" will be labelled "MY" and will join regions already labelled "MY".
+# What's in [] does not matter but must be unique and is used to group.
+# The new "name" and "acronym" can be existing Allen Brain regions or a new (meaningful) one.
+# Note that it is case sensitive.
+
+[10Sp]
+name = "10Sp"
+acronym = "10Sp"
+members = ["10Sp", "IMM7", "IMM10", "CC"]
