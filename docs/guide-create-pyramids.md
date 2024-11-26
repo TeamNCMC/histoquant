@@ -51,7 +51,7 @@ The script is located under `scripts/pyramids`. Copy the two files (.py and .gro
 
 To use the QuPath backend (recommended), you need to set its path in the script. To do so, open the `create_pyramids.py` file with a text editor (Notepad or [vscode](https://code.visualstudio.com/) to get nice syntax coloring).
 Locate the `QUPATH_PATH` line :
-``` python linenums="47" hl_lines="2"
+``` python linenums="51" hl_lines="2"
 --8<-- "scripts/pyramids/create_pyramids.py:51:54"
 ```
 
