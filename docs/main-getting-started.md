@@ -10,7 +10,7 @@ conda create -c conda-forge -n hq python=3.12 pytables
 ```
 conda activate hq
 ```
-4. Browse to the downloaded `histoquant` folder, and install it with pip :
+4. [Download](https://github.com/TeamNCMC/histoquant/releases/latest) the latest release .zip, unzip it and install it with pip, from inside the `histoquant-xxx` folder :
 ```
 pip install .
 ```
@@ -74,7 +74,7 @@ The following commands should be run from a terminal (PowerShell). Remember that
     ```
     conda create -c conda-forge -n hq python=3.12 pytables
     ```
-    2. Get a copy of the `histoquant` folder, usually the latest version can be found in `Guillaume/share/programs` in the server. Copy it somewhere on your computer.
+    2. Get a copy of the `histoquant` Source code .zip package, from the [Releases](https://github.com/TeamNCMC/histoquant/releases/latest) page.
     3. We need to install it *inside* the `hq` environment we just created. First, you need to *activate* the `hq` environment :
     ```bash
     conda activate hq
