@@ -17,7 +17,7 @@ def segTag = 'fibers'  // type of segmentation
 // Build output directory name
 def projectParentDir = new File(buildFilePath(PROJECT_BASE_DIR)).getParent()
 def outputDir = projectParentDir +
-                '/' + expid.toLowerCase() + folderPrefix + 'segmentation' +
+                '/' + folderPrefix + 'segmentation' +
                 '/' + segTag +
                 '/' + 'probabilities/'
 
