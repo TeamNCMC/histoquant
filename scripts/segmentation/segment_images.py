@@ -19,7 +19,7 @@ To exclude objects near the edges of an ROI, specify the path to masks stored as
 with the same names as probabilities images (without their suffix).
 
 Author : Guillaume Le Goc (g.legoc@posteo.org) @ NeuroPSI
-Version : 2024.11.19
+Version : 2024.11.27
 
 """
 
@@ -451,7 +451,7 @@ if __name__ == "__main__":
             qupath_color=param["qp_color"],
             channel_suffix=make_suffix(param["name"]),
             edge_dist=EDGE_DIST,
-            filters=FILTERS,
+            filters=FILTERS.copy(),
             masks_dir=MASKS_DIR,
             masks_ext=MASKS_EXT,
         )
