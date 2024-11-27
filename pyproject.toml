@@ -1,6 +1,6 @@
 [project]
 name = "histoquant"
-version = "2024.11.19"
+version = "2024.11.27"
 authors = [{ name = "Guillaume Le Goc", email = "g.legoc@posteo.org" }]
 description = "Quantification of objects in histological slices"
 readme = "README.md"
