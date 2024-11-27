@@ -33,6 +33,6 @@ The documentation outline is on the left panel, you can click on items to browse
 + *Introduction to Bioimage Analysis*, an interactive book written by QuPath's creator : [https://bioimagebook.github.io/index.html](https://bioimagebook.github.io/index.html)
 
 ## Credits
-`histoquant` has been primarly developped by [Guillaume Le Goc](https://legoc.fr) in [Julien Bouvier's lab](https://www.bouvier-lab.com/) at [NeuroPSI](https://neuropsi.cnrs.fr/).
+`histoquant` has been primarly developed by [Guillaume Le Goc](https://legoc.fr) in [Julien Bouvier's lab](https://www.bouvier-lab.com/) at [NeuroPSI](https://neuropsi.cnrs.fr/).
 
 The documentation itself is built with [MkDocs](https://www.mkdocs.org/) using the [Material theme](https://squidfunk.github.io/mkdocs-material/).
