@@ -196,8 +196,13 @@ def process_animals(
 
     Returns
     -------
-    axs : list of Axes
-    dfs : list of pandas.DataFrame
+    df_regions : pandas.DataFrame
+        Metrics in brain regions. One entry for each hemisphere of each brain regions.
+    df_distribution : list of pandas.DataFrame
+        Rostro-caudal distribution, as raw count and probability density function, in
+        each axis.
+    df_coordinates : pandas.DataFrame
+        Atlas coordinates of each points.
 
     """
 
