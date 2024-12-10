@@ -32,7 +32,11 @@ def get_pixelsize(image_name: str) -> float:
     """
 
     with tifffile.TiffFile(image_name) as tif:
-        return 1e6 / tif.pages[0].tags["XResolution"].value[0]
+        # XResolution is a tuple, numerator, denomitor. The inverse is the pixel size
+        return (
+            tif.pages[0].tags["XResolution"].value[1]
+            / tif.pages[0].tags["XResolution"].value[0]
+        )
 
 
 def convert_to_pixels(filters, pixelsize):
@@ -142,7 +146,7 @@ def get_image_skeleton(img: np.ndarray, minsize=0) -> np.ndarray:
 
 
 def get_collection_from_skel(
-    skeleton: Skeleton, properties: dict
+    skeleton: Skeleton, properties: dict, rescale_factor: float = 1.0, offset=0.5
 ) -> geojson.FeatureCollection:
     """
     Get the coordinates of each skeleton path as a GeoJSON Features in a
@@ -154,6 +158,11 @@ def get_collection_from_skel(
     skeleton : skan.Skeleton
     properties : dict
         QuPatj objects' properties.
+    rescale_factor : float
+        Rescale output coordinates by this factor.
+    offset : float
+        Shift coordinates by this amount, typically to get pixel centers or edges.
+        Default is 0.5.
 
     Returns
     -------
@@ -171,7 +180,7 @@ def get_collection_from_skel(
         collection.append(
             geojson.Feature(
                 geometry=shapely.LineString(
-                    skeleton.path_coordinates(ind)[:, ::-1]
+                    (skeleton.path_coordinates(ind)[:, ::-1] + offset) * rescale_factor
                 ),  # shape object
                 properties=prop,  # object properties
                 id=str(uuid.uuid4()),  # object uuid
@@ -182,7 +191,7 @@ def get_collection_from_skel(
 
 
 def get_collection_from_poly(
-    contours: list, properties: dict
+    contours: list, properties: dict, rescale_factor: float = 1.0, offset: float = 0.5
 ) -> geojson.FeatureCollection:
     """
     Gather coordinates in the list and put them in GeoJSON format as Polygons.
@@ -195,6 +204,11 @@ def get_collection_from_poly(
     contours : list
     properties : dict
         QuPatj objects' properties.
+    rescale_factor : float
+        Rescale output coordinates by this factor.
+    offset : float
+        Shift coordinates by this amount, typically to get pixel centers or edges.
+        Default is 0.5.
 
     Returns
     -------
@@ -202,10 +216,11 @@ def get_collection_from_poly(
         A FeatureCollection ready to be written as geojson.
 
     """
-
     collection = [
         geojson.Feature(
-            geometry=shapely.Polygon(np.fliplr(contour)),  # shape object
+            geometry=shapely.Polygon(
+                np.fliplr((contour + offset) * rescale_factor)
+            ),  # shape object
             properties=properties,  # object properties
             id=str(uuid.uuid4()),  # object uuid
         )
@@ -216,7 +231,7 @@ def get_collection_from_poly(
 
 
 def get_collection_from_points(
-    coords: list, properties: dict
+    coords: list, properties: dict, rescale_factor: float = 1.0, offset: float = 0.5
 ) -> geojson.FeatureCollection:
     """
     Gather coordinates from `coords` and put them in GeoJSON format.
@@ -228,6 +243,8 @@ def get_collection_from_points(
     ----------
     coords : list
     properties : dict
+    rescale_factor : float
+        Rescale output coordinates by this factor.
 
     Returns
     -------
@@ -237,7 +254,9 @@ def get_collection_from_points(
 
     collection = [
         geojson.Feature(
-            geometry=shapely.Point(np.flip(coord)),  # shape object
+            geometry=shapely.Point(
+                np.flip((coord + offset) * rescale_factor)
+            ),  # shape object
             properties=properties,  # object properties
             id=str(uuid.uuid4()),  # object uuid
         )
@@ -248,7 +267,7 @@ def get_collection_from_points(
 
 
 def segment_lines(
-    img: np.ndarray, geojson_props: dict, minsize=0.0
+    img: np.ndarray, geojson_props: dict, minsize=0.0, rescale_factor=1.0
 ) -> geojson.FeatureCollection:
     """
     Wraps skeleton analysis to get paths coordinates.
@@ -261,6 +280,8 @@ def segment_lines(
         GeoJSON properties of objects.
     minsize : float
         Minimum size in pixels for an object.
+    rescale_factor : float
+        Rescale output coordinates by this factor.
 
     Returns
     -------
@@ -273,7 +294,9 @@ def segment_lines(
 
     # get paths coordinates as FeatureCollection
     skeleton = Skeleton(skel, keep_images=False)
-    return get_collection_from_skel(skeleton, geojson_props)
+    return get_collection_from_skel(
+        skeleton, geojson_props, rescale_factor=rescale_factor
+    )
 
 
 def segment_polygons(
@@ -283,6 +306,7 @@ def segment_polygons(
     area_max: float = np.inf,
     ecc_min: float = 0.0,
     ecc_max: float = 1.0,
+    rescale_factor: float = 1.0,
 ) -> geojson.FeatureCollection:
     """
     Polygon segmentation.
@@ -297,6 +321,8 @@ def segment_polygons(
         Minimum and maximum area in pixels for an object.
     ecc_min, ecc_max : float
         Minimum and maximum eccentricity for an object.
+    rescale_factor: float
+        Rescale output coordinates by this factor.
 
     Returns
     -------
@@ -328,7 +354,9 @@ def segment_polygons(
     label_image = label_image > 0
     contours = measure.find_contours(label_image)
 
-    return get_collection_from_poly(contours, geojson_props)
+    return get_collection_from_poly(
+        contours, geojson_props, rescale_factor=rescale_factor
+    )
 
 
 def segment_points(
@@ -339,6 +367,7 @@ def segment_points(
     ecc_min: float = 0,
     ecc_max: float = 1,
     dist_thresh: float = 0,
+    rescale_factor: float = 1,
 ) -> geojson.FeatureCollection:
     """
     Point segmentation.
@@ -359,6 +388,8 @@ def segment_points(
     dist_thresh : float
         Maximal distance in pixels between objects before considering them as isolated and remove them.
         0 disables it.
+    rescale_factor : float
+        Rescale output coordinates by this factor.
 
     Returns
     -------
@@ -410,4 +441,6 @@ def segment_points(
     # get points coordinates
     coords = np.argwhere(bw)
 
-    return get_collection_from_points(coords, geojson_props)
+    return get_collection_from_points(
+        coords, geojson_props, rescale_factor=rescale_factor
+    )

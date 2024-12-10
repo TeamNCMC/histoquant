@@ -18,8 +18,8 @@ A "geojson" folder will be created in the parent directory of `IMAGES_DIR`.
 To exclude objects near the edges of an ROI, specify the path to masks stored as images
 with the same names as probabilities images (without their suffix).
 
-Author : Guillaume Le Goc (g.legoc@posteo.org) @ NeuroPSI
-Version : 2024.11.27
+author : Guillaume Le Goc (g.legoc@posteo.org) @ NeuroPSI
+version : 2024.12.10
 
 """
 
@@ -37,17 +37,22 @@ import histoquant as hq
 pd.options.mode.copy_on_write = True  # prepare for pandas 3
 
 # --- Parameters
-IMAGES_DIR = "/path/to/images/to/segment"
+IMAGES_DIR = "/path/to/images"
 """Full path to the images to segment."""
 MASKS_DIR = "path/to/corresponding/masks"
 """Full path to the masks, to exclude objects near the brain edges (set to None or empty
 string to disable this feature)."""
 MASKS_EXT = "tiff"
 """Masks files extension."""
-SEGTYPE = "fibers"
+SEGTYPE = "boutons"
 """Type of segmentation."""
 IMG_SUFFIX = "_Probabilities.tiff"
 """Images suffix, including extension. Masks must be the same name without the suffix."""
+ORIGINAL_PIXELSIZE = 0.4500
+"""Original images pixel size in microns. This is in case the pixel classifier uses
+a lower resolution, yielding smaller probability maps, so output objects coordinates
+need to be rescaled to the full size images. The pixel size is written in the "Image"
+tab in QuPath."""
 
 CHANNELS_PARAMS = [
     {
@@ -60,7 +65,7 @@ CHANNELS_PARAMS = [
     {
         "name": "dsred",
         "target_channel": 1,
-        "proba_threshold": 0.85,
+        "proba_threshold": 0.65,
         "qp_class": "Fibers: DsRed",
         "qp_color": [224, 153, 18],
     },
@@ -80,13 +85,13 @@ CHANNELS_PARAMS = [
 - qp_class: str, name of QuPath classification
 - qp_color: list of RGB values, associated color"""
 
-EDGE_DIST = 50
+EDGE_DIST = 0
 """Distance to brain edge to ignore, in µm. 0 to disable."""
 
 FILTERS = {
     "length_low": 1.5,  # minimal length in microns - for lines
-    "area_low": 1.1,  # minimal area in µm² - for polygons and points
-    "area_high": 10,  # maximal area in µm² - for polygons and points
+    "area_low": 10,  # minimal area in µm² - for polygons and points
+    "area_high": 1000,  # maximal area in µm² - for polygons and points
     "ecc_low": 0.0,  # minimal eccentricity - for polygons  and points (0 = circle)
     "ecc_high": 0.9,  # maximal eccentricity - for polygons and points (1 = line)
     "dist_thresh": 30,  # maximal inter-point distance in µm - for points
@@ -237,7 +242,9 @@ def parameters_as_dict(
     }
 
 
-def write_parameters(outfile: str, parameters: dict, filters: dict):
+def write_parameters(
+    outfile: str, parameters: dict, filters: dict, original_pixelsize: float
+):
     """
     Write parameters to `outfile`.
 
@@ -252,11 +259,15 @@ def write_parameters(outfile: str, parameters: dict, filters: dict):
         General parameters.
     filters : dict
         Filters parameters.
+    original_pixelsize : float
+        Size of pixels in original image.
 
     """
 
     with open(outfile, "w") as fid:
         fid.writelines(f"date = {datetime.now().strftime('%d-%B-%Y %H:%M:%S')}\n")
+
+        fid.writelines(f"original_pixelsize = {original_pixelsize}\n")
 
         for key, value in parameters.items():
             fid.writelines(f"{key} = {value}\n")
@@ -271,6 +282,7 @@ def process_directory(
     images_dir: str,
     img_suffix: str = "",
     segtype: str = "",
+    original_pixelsize: float = 1.0,
     target_channel: int = 0,
     proba_threshold: float = 0.0,
     qupath_class: str = "Object",
@@ -292,6 +304,8 @@ def process_directory(
         Images suffix, including extension.
     segtype : str
         Segmentation type.
+    original_pixelsize : float
+        Original images pixel size in microns.
     target_channel : int
         Index of the channel containning the objects of interest (eg. not the
         background), in the probability map (*not* the original images channels).
@@ -339,12 +353,15 @@ def process_directory(
     if os.path.isfile(param_file):
         raise FileExistsError("Parameters file already exists.")
     else:
-        write_parameters(param_file, parameters, filters)
+        write_parameters(param_file, parameters, filters, original_pixelsize)
 
-    # convert parameters to pixels
+    # convert parameters to pixels in probability map
     pixelsize = hq.seg.get_pixelsize(images_list[0])  # get pixel size
     edge_dist = int(edge_dist / pixelsize)
     filters = hq.seg.convert_to_pixels(filters, pixelsize)
+
+    # get rescaling factor
+    rescale_factor = pixelsize / original_pixelsize
 
     # get GeoJSON properties
     geojson_props = get_geojson_properties(
@@ -385,7 +402,10 @@ def process_directory(
 
         if seg_method == "lines":
             collection = hq.seg.segment_lines(
-                img, geojson_props, minsize=filters["length_low"]
+                img,
+                geojson_props,
+                minsize=filters["length_low"],
+                rescale_factor=rescale_factor,
             )
 
         elif seg_method == "polygons":
@@ -396,6 +416,7 @@ def process_directory(
                 area_max=filters["area_high"],
                 ecc_min=filters["ecc_low"],
                 ecc_max=filters["ecc_high"],
+                rescale_factor=rescale_factor,
             )
 
         elif seg_method == "points":
@@ -407,6 +428,7 @@ def process_directory(
                 ecc_min=filters["ecc_low"],
                 ecc_max=filters["ecc_high"],
                 dist_thresh=filters["dist_thresh"],
+                rescale_factor=rescale_factor,
             )
         else:
             # we already printed an error message
@@ -445,6 +467,7 @@ if __name__ == "__main__":
             IMAGES_DIR,
             img_suffix=IMG_SUFFIX,
             segtype=SEGTYPE,
+            original_pixelsize=ORIGINAL_PIXELSIZE,
             target_channel=param["target_channel"],
             proba_threshold=param["proba_threshold"],
             qupath_class=param["qp_class"],
