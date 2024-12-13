@@ -43,7 +43,7 @@ The `histoquant` package is written in Python. It depends on scientific librarie
 This is why it is *highly* recommended to install miniconda3 instead, a minimal installer for conda :
 
 !!! example ""
-    1. Download and install [miniconda3](https://docs.anaconda.com/miniconda/#latest-miniconda-installer-links). During the installation, choose to install for the current user, add conda to PATH and make python the default interpreter.
+    1. Download and install [miniconda3](https://repo.anaconda.com/miniconda/) (choose the "latest" version for your system). During the installation, choose to install for the current user, add conda to PATH and make python the default interpreter.
     2. Open a terminal (PowerShell in Windows). Run :
     ```bash
     conda init
