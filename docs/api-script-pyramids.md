@@ -1,1 +1,0 @@
-:::scripts.pyramids.create_pyramids

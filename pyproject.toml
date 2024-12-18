@@ -29,6 +29,7 @@ dependencies = [
   "seaborn>=0.13.2",
   "shapely>=2.0.4",
   "skan>=0.12.0",
+  "tables>=3.10.1",
   "tifffile>=2024.4.24",
   "tqdm",
   "typer",
@@ -51,9 +52,11 @@ doc = [
 requires = ["setuptools", "wheel"]
 build-backend = "setuptools.build_meta"
 
+[tool.hatch.build]
+include = [
+    "histoquant"
+]
+
 [tool.ruff]
 line-length = 88
 extend-include = ["*.ipynb"]
-
-[tool.setuptools.packages.find]
-include = ["histoquant"]

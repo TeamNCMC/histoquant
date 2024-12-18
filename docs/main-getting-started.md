@@ -1,10 +1,10 @@
 # Getting started
 
 ## Quick start
-1. Install QuPath, ABBA and miniconda3.
+1. Install QuPath, ABBA and conda.
 2. Create an environment :
 ```
-conda create -c conda-forge -n hq python=3.12 pytables
+conda create -c conda-forge -n hq python=3.12
 ```
 3. Activate it :
 ```
@@ -35,15 +35,23 @@ This is where you'll create QuPath projects, in which you'll be able to browse y
 ### Aligning Big Brain and Atlases (ABBA)
 This is the tool you'll use to register 2D histological sections to 3D atlases. See the [dedicated page](guide-install-abba.md).
 
-### Python virtual environment manager (conda)
+### Python virtual environment manager (`conda`)
 The `histoquant` package is written in Python. It depends on scientific libraries (such as [NumPy](https://numpy.org/), [pandas](https://pandas.pydata.org/) and many more). Those libraries need to be installed in versions that are compatible with each other and with `histoquant`. To make sure those versions do not conflict with other Python tools you might be using (`deeplabcut`, `abba_python`, ...), we will install `histoquant` and its dependencies in a dedicated *virtual environment*.
 
-[conda](https://docs.conda.io/en/latest/) is a software that takes care of this. It comes with a "base" environment, from which we will create and manage other environments. It is included with the Anaconda distribution, but the latter is bloated : its "base" environment already contains tons of libraries, and tends to self-destruct at some point (eg. becomes unable to resolve the inter-dependencies), which makes you unable to install new libraries nor create new environments.
+[`conda`](https://docs.conda.io/en/latest/) is a software that takes care of this. It comes with a "base" environment, from which we will create and manage other, project-specific environments. It is also used to download and install python in each of those environments, as well as third-party libraries. `conda` in itself is free and open-source and can be used freely by anyone.
 
-This is why it is *highly* recommended to install miniconda3 instead, a minimal installer for conda :
+It is included with the Anaconda distribution, which is subject to [specific terms of service](https://www.anaconda.com/blog/update-on-anacondas-terms-of-service-for-academia-and-research), which state that unless you're an individual, a member of a company with less than 200 employees or a member of an university (but *not* a national research lab) it's free to use, otherwise, you need to pay a licence. `conda`, while being free, is by default configured to use the "defaults" channel to fetch the packages (including Python itself), a repository operated by Anaconda, which is, itself, subject to the Anaconda terms of service.
+
+In contrast, conda-forge is a community-run repository that contains more numerous and more update-to-date packages. This is free to use for anyone. The idea is to use `conda` directly (instead of Anaconda graphical interface) and download packages from conda-forge (instead of the Anaconda-run defaults). To try to decipher this mess, Anaconda provides this figure :
+
+![Anaconda terms of service](images/anaconda-licences.png)
+
+Furthermore, the "base" conda environment installed with the Anaconda distribution is bloated and already contains tons of libraries, and tends to self-destruct at some point (eg. becomes unable to resolve the inter-dependencies), which makes you unable to install new libraries nor create new environments.
+
+This is why it is *highly* recommended to install Miniconda instead, a minimal installer for conda, and configure it to use the free, community-run channel conda-forge, or, even better, use Miniforge which is basically the same but pre-configured to use conda-forge. The only downside is that will not get the Anaonda graphical user interface and you'll need to use the terminal instead, but worry not ! We got you covered.
 
 !!! example ""
-    1. Download and install [miniconda3](https://repo.anaconda.com/miniconda/) (choose the "latest" version for your system). During the installation, choose to install for the current user, add conda to PATH and make python the default interpreter.
+    1. Download and install [Miniforge](https://conda-forge.org/download/) (choose the latest release for your system). During the installation, choose to install for the current user, add conda to PATH and make python the default interpreter.
     2. Open a terminal (PowerShell in Windows). Run :
     ```bash
     conda init
@@ -52,22 +60,13 @@ This is why it is *highly* recommended to install miniconda3 instead, a minimal 
     ```bash
     (base) PS C:\Users\myname>
     ```
-    3. Run :
-    ```bash
-    conda config --add channels conda-forge
-    ```
-    Then :
-    ```bash
-    conda config --set channel_priority flexible
-    ```
-    This will make conda download the packages from the "conda-forge" online repository, which is more complete and up-to-date. The flag `-c conda-forge` in the subsequent instructions won't be necessary anymore.
 
 !!! tip
-    If Anaconda is already installed and you don't have the rights to uninstall it, you'll have to use it instead. You can launch the "Anaconda Prompt (PowerShell)", run `conda init` and follow the same instructions below (and hope it won't break in the foreseeable future).
+    If Anaconda is already installed and you don't have the rights to uninstall it, you'll have to use it instead. You can launch the "Anaconda Prompt (PowerShell)", run `conda init`. Open a regular PowerShell window and run `conda config --add channels conda-forge`, so that subsequent installations and environments creation will fetch required dependencies from conda-forge.
 
 ### Installation
 This section explains how to actually install the `histoquant` package.
-The following commands should be run from a terminal (PowerShell). Remember that the `-c conda-forge` bits are not necessary if you did the step 3. above.
+The following commands should be run from a terminal (PowerShell). Remember that the `-c conda-forge` bits are not necessary if you installed conda with the miniforge distribution.
 
 !!! example ""
     1. Create a virtual environment with python 3.12 and some libraries:

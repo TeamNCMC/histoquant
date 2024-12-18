@@ -35,8 +35,8 @@ ABBA should be installed and functional ! You can check the [official documentat
 
 To be able to leverage those atlases, we need to make ImageJ and Python be able to talk to each other. This is the purpose of [abba_python](https://github.com/BIOP/abba_python), that will install ImageJ and its ABBA plugins *inside* a python environment, with bindings between the two worlds.
 
-### Install conda
-If not done already, follow [those instructions](main-getting-started.md#python-virtual-environment-manager-conda) to install miniconda3.
+### Install `conda`
+If not done already, follow [those instructions](main-getting-started.md#python-virtual-environment-manager-conda) to install `conda`.
 
 ### Install abba_python in a virtual environment
 1. Open a terminal (PowerShell).
