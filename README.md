@@ -8,20 +8,20 @@ Check the full documentation : [https://teamncmc.github.io/histoquant](https://t
 
 ## Install
 Steps 1-3 below need to be performed only once. If Anaconda or conda is already installed, skip steps 1-2 and use the Anaconda prompt instead.
-1. Install [miniconda3](https://docs.anaconda.com/free/miniconda/#id2), as user, add conda to PATH and make it the default interpreter.
+1. Install [Miniforge](https://conda-forge.org/download/), as user, add conda to PATH and make it the default interpreter.
 2. Open a terminal (PowerShell in Windows). run : `conda init` and restart the terminal.
-3. Create a virtual environment named "hq" with Python 3.12 and PyTables:
+3. Create a virtual environment named "hq" with Python 3.12:
     ```
-    conda create -n hq -c conda-forge python=3.12 pytables
+    conda create -n hq python=3.12
     ```
 4. Activate the environment:
     ```
     conda activate hq
     ```
-5. Download the repository and unzip it on your computer, or clone with `git`.
+5. Download the latest release from [here](https://github.com/TeamNCMC/histoquant/releases/latest) (choose "Source code (zip)) and unzip it on your computer.
 6. Browse to the repository from the terminal and install the `histoquant` package:
     ```
-    cd /path/to/the/repo
+    cd /path/to/the/unzipped/folder
     pip install .
     ```
 
