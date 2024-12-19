@@ -10,7 +10,7 @@ Finally, export the coordinates as collections in geojson files, importable in Q
 Supports any number of channel of interest within the same image. One file output file
 per channel will be created.
 
-This script uses `histoquant.seg`. It is designed to work on probability maps generated
+This script uses `cuisto.seg`. It is designed to work on probability maps generated
 from a pixel classifier in QuPath, but *might* work on raw images.
 
 Usage : fill-in the Parameters section of the script and run it.
@@ -32,7 +32,7 @@ import pandas as pd
 import tifffile
 from tqdm import tqdm
 
-import histoquant as hq
+import cuisto as hq
 
 pd.options.mode.copy_on_write = True  # prepare for pandas 3
 

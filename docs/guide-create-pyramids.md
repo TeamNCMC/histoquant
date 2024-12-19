@@ -6,7 +6,7 @@ This page will guide you to use the `pyramid-creator` package, in the event the 
     `pyramid-creator` can also pyramidalize images using Python only with the `--no-use-qupath` option.
 This Python script uses QuPath under the hood, via a companion script called `createPyramids.groovy`. It will find the OME-TIFF files and make QuPath run the groovy script on it, in console mode (without graphical user interface).
 
-This script is standalone, eg. it does not rely on the `histoquant` package. But installing the later makes sure all dependencies are installed (namely `typer` and `tqdm` with the QuPath backend and quite a few more for the Python backend).
+This script is standalone, eg. it does not rely on the `cuisto` package. But installing the later makes sure all dependencies are installed (namely `typer` and `tqdm` with the QuPath backend and quite a few more for the Python backend).
 
 `pyramid-creator` moved to a standalone package that you can find [here](https://github.com/TeamNCMC/pyramid-creator#pyramid_creator) with [installation](https://github.com/TeamNCMC/pyramid-creator#install) and [usage](https://github.com/TeamNCMC/pyramid-creator#usage) instructions.
 
@@ -17,10 +17,10 @@ For reference :
 
 You will need `conda`, follow [those instructions](main-getting-started.md#python-virtual-environment-manager-conda) to install it.
 
-Then, create a virtual environment if you didn't already (`pyramid-creator` can be installed in the environment for `histoquant`) and install the [`pyramid-creator`](https://github.com/TeamNCMC/pyramid-creator) package.
+Then, create a virtual environment if you didn't already (`pyramid-creator` can be installed in the environment for `cuisto`) and install the [`pyramid-creator`](https://github.com/TeamNCMC/pyramid-creator) package.
 ```bash
-conda create -c conda-forge -n hq python=3.12  # not required if you already create an environment
-conda activate hq
+conda create -c conda-forge -n cuisto-env python=3.12  # not required if you already create an environment
+conda activate cuisto-env
 pip install pyramid-creator
 ```
 To use the Python backend (with `tifffile`), replace the last line with :

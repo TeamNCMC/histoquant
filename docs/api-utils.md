@@ -1,1 +1,1 @@
-:::histoquant.utils
+:::cuisto.utils

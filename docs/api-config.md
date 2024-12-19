@@ -1,1 +1,1 @@
-:::histoquant.config
+:::cuisto.config

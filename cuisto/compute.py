@@ -1,4 +1,4 @@
-"""compute module, part of histoquant.
+"""compute module, part of cuisto.
 
 Contains actual computation functions.
 
@@ -7,7 +7,7 @@ Contains actual computation functions.
 import numpy as np
 import pandas as pd
 
-from histoquant.utils import get_starter_cells, select_hemisphere_channel
+from cuisto.utils import get_starter_cells, select_hemisphere_channel
 
 
 def get_regions_metrics(

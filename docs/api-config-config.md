@@ -78,7 +78,7 @@
 `normalize_starter_cells` : normalize non-relative metrics by the number of starter cells
 
 <h4>metrics</h4>
-*Names of metrics. The keys are used internally in histoquant as is so should NOT be modified. The values will only chang etheir names in the ouput file*
+*Names of metrics. The keys are used internally in cuisto as is so should NOT be modified. The values will only chang etheir names in the ouput file*
 
 `"density µm^-2"` : relevant name  
 `"density mm^-2"` : relevant name  

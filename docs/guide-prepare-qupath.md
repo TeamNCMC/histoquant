@@ -1,9 +1,9 @@
 # Prepare QuPath data
 
-`histoquant` uses some QuPath classifications concepts, make sure to be familiar with them with the [official documentation](https://qupath.readthedocs.io/en/stable/docs/concepts/classifications.html#classifications-derived-classifications). Notably, we use the concept of primary classification and derived classification : an object classfied as `First: second` is of classification `First` and of derived classification `second`.
+`cuisto` uses some QuPath classifications concepts, make sure to be familiar with them with the [official documentation](https://qupath.readthedocs.io/en/stable/docs/concepts/classifications.html#classifications-derived-classifications). Notably, we use the concept of primary classification and derived classification : an object classfied as `First: second` is of classification `First` and of derived classification `second`.
 
 ## QuPath requirements
-`histoquant` assumes a specific way of storing regions and objects information in the TSV files exported from QuPath. Note that only one primary classification is supported, but you can have any number of derived classifications.
+`cuisto` assumes a specific way of storing regions and objects information in the TSV files exported from QuPath. Note that only one primary classification is supported, but you can have any number of derived classifications.
 
 ### Detections
 Detections are the objects of interest. Their information must respect the following :
@@ -27,8 +27,8 @@ For instance :
 
 ## Measurements
 
-### Metrics supported by `histoquant`
-While you're free to add any measurements as long as they follow [the requirements](#qupath-requirements), keep in mind that for atlas regions quantification, `histoquant` will only compute, pool and average the following metrics :
+### Metrics supported by `cuisto`
+While you're free to add any measurements as long as they follow [the requirements](#qupath-requirements), keep in mind that for atlas regions quantification, `cuisto` will only compute, pool and average the following metrics :
 
 - the base measurement itself
     - if "µm" is contained in the measurement name, it will also be converted to mm (\(\div\)1000)
@@ -51,11 +51,11 @@ The groovy script under `scripts/qupath-utils/measurements/addRegionsCount.groov
 The groovy script under `scripts/qupath-utils/measurements/addRegionsLength.groovy` will add the properly formatted cumulated lenghth in microns of fibers-like objects in all atlas regions. This is used for polylines objects, for example generated with the [segmentation script](api-script-segment.md).
 
 #### Custom measurements
-Keeping in mind [`histoquant` limitations](#metrics-supported-by-histoquant), you can add any measurements you'd like.
+Keeping in mind [`cuisto` limitations](#metrics-supported-by-cuisto), you can add any measurements you'd like.
 
 For example, you can run a [pixel classifier](https://qupath.readthedocs.io/en/stable/docs/tutorials/pixel_classification.html) in all annotations (eg. atlas regions). Using the `Measure` button, it will add a measurement of [the area covered by classified pixels](https://qupath.readthedocs.io/en/stable/docs/tutorials/measuring_areas.html#generating-results). Then, you can use the script located under `scripts/qupath-utils/measurements/renameMeasurements.groovy` to rename the generated measurements with a [properly-formatted name](#annotations). Finally, you can [export](#qupath-export) regions measurements.
 
-Since `histoquant` will compute a "density", eg. the measurement divided by the region area, in this case, it will correspond to the fraction of surface occupied by classified pixels. This is showcased in the [Examples](demo_notebooks/fibers_coverage.ipynb).
+Since `cuisto` will compute a "density", eg. the measurement divided by the region area, in this case, it will correspond to the fraction of surface occupied by classified pixels. This is showcased in the [Examples](demo_notebooks/fibers_coverage.ipynb).
 
 ## QuPath export
 Once you imported atlas regions registered with ABBA, detected objects in your images and added [properly formatted](#qupath-requirements) measurements to detections and annotations, you can : 
@@ -66,5 +66,5 @@ Once you imported atlas regions registered with ABBA, detected objects in your i
 + Chose either `Detections` or `Annoations` in `Export type`
 + Click `Export`
 
-Do this for both Detections and Annotations, you can then use those files with `histoquant` (see the [Examples](main-using-notebooks.md)).
+Do this for both Detections and Annotations, you can then use those files with `cuisto` (see the [Examples](main-using-notebooks.md)).
 

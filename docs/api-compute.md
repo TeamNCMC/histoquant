@@ -1,1 +1,1 @@
-:::histoquant.compute
+:::cuisto.compute

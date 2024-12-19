@@ -1,6 +1,6 @@
 """
 Script for preprocessing. Does the following :
-* Move images from ZEN_EXPORT to Stack_RIP/merged_original, renaming files consistently,
+* Move images from ZEN_EXPORT to images/merged_original, renaming files consistently,
 * Split channels in different subdirectories,
 * Find the brain mask, save at it as an image, and apply it to channel used for
   detection,
@@ -259,7 +259,7 @@ def reformat_filename(expid, slicenum, out_ndig=3, out_prefix="", out_ext="ome.t
 
 def make_outdir_chan(wdir, expid, ichannel, cleaned=False):
     """
-    Create directory name wdir/expid/Stack_RIP/ch0{ichannel} or ch0{ichannel}_cleaned.
+    Create directory name wdir/expid/images/ch0{ichannel} or ch0{ichannel}_cleaned.
 
     Parameters
     ----------
@@ -276,10 +276,10 @@ def make_outdir_chan(wdir, expid, ichannel, cleaned=False):
     """
     if cleaned:
         return os.path.join(
-            wdir, expid, "Stack_RIP", f"ch{str(ichannel).zfill(2)}_cleaned"
+            wdir, expid, "images", f"ch{str(ichannel).zfill(2)}_cleaned"
         )
     else:
-        return os.path.join(wdir, expid, "Stack_RIP", f"ch{str(ichannel).zfill(2)}")
+        return os.path.join(wdir, expid, "images", f"ch{str(ichannel).zfill(2)}")
 
 
 def find_max_size(imgslist):
@@ -325,7 +325,7 @@ def get_max_size(imgslist):
 
 def split_channels(wdir, expid, imgpath, mirror_lr, mirror_ud):
     """
-    Split channels of image `imgpath` and saves them under wdir/expid/Stack_RIP/chXX.
+    Split channels of image `imgpath` and saves them under wdir/expid/images/chXX.
 
     Parameters
     ----------
@@ -667,7 +667,7 @@ def process_directory(
     """
     Main function. Rename files, split channels, find brain contours and apply them.
 
-    - Move files from WDIR/expid/ZEN_EXPORT to WDIR/expid/Stack_RIP/merged_original,
+    - Move files from WDIR/expid/ZEN_EXPORT to WDIR/expid/images/merged_original,
     renaming the files so that they are sorted with consistent numbering;
     - Split channels and put individual channels in chXX directories, so that they can
     be edited in Fiji if needed;
@@ -705,7 +705,7 @@ def process_directory(
 
     # build directories names
     inpdir = os.path.join(wdir, expid, "ZEN_EXPORT")
-    outdir = os.path.join(wdir, expid, "Stack_RIP", "merged_original")
+    outdir = os.path.join(wdir, expid, "images", "merged_original")
 
     # create directory if it does not exist
     if not os.path.isdir(outdir):
@@ -805,7 +805,7 @@ def process_directory(
         channel_detection_dir = make_outdir_chan(wdir, expid, CHAN_DETECTION)
 
         # masks directory
-        masks_dir = os.path.join(wdir, expid, "Stack_RIP", "Masks")
+        masks_dir = os.path.join(wdir, expid, "images", "Masks")
 
         # cleaned images directory
         cleaned_dir = make_outdir_chan(wdir, expid, CHAN_DETECTION, cleaned=True)

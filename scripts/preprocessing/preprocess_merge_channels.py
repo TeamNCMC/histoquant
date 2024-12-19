@@ -195,7 +195,7 @@ def process_directory(
     """
     Merge TIFF stacks representing different channels and create pyramidal OME-TIFF.
 
-    wdir/expid/Stack_RIP is scanned for directories chXX_cleaned, images are collected and merged.
+    wdir/expid/images is scanned for directories chXX_cleaned, images are collected and merged.
 
     Parameters
     ----------
@@ -211,8 +211,8 @@ def process_directory(
     wdir = os.path.abspath(WDIR)
 
     # build directories names
-    inpdir = os.path.join(wdir, expid, "Stack_RIP")
-    outdir = os.path.join(wdir, expid, "Stack_RIP", "merged_cleaned_pyramid")
+    inpdir = os.path.join(wdir, expid, "images")
+    outdir = os.path.join(wdir, expid, "images", "merged_cleaned_pyramid")
 
     # create directory if it does not exist
     if not os.path.isdir(outdir):
@@ -223,7 +223,7 @@ def process_directory(
         os.path.join(inpdir, directory)
         for directory in os.listdir(inpdir)
         if (
-            os.path.isdir(os.path.join(wdir, expid, "Stack_RIP", directory))
+            os.path.isdir(os.path.join(wdir, expid, "images", directory))
             and directory.startswith("ch")
             and directory.endswith("cleaned")
         )

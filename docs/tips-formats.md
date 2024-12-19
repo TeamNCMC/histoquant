@@ -34,7 +34,7 @@ QuPath and ABBA supports any Bio-formats supported, tiled, pyramidal images.
 
 If you're in luck, adding the pyramidal CZI file to your [QuPath project](https://qupath.readthedocs.io/en/stable/docs/tutorials/projects.html) will just work. If it doesn't, you'll notice immediately : the tiles will be shuffled and you'll see only a part of the image instead of the whole one. Unfortunately I was not able to determine why this happens and did not find a way to even predict if a file will or will not work.
 
-In the event you experience this bug, you'll need to export the CZI files to OME-TIFF files from ZEN, then generate tiled pyramidal images with the `create_pyramids.py` script included in `histoquant`. See the [instructions](guide-create-pyramids.md).
+In the event you experience this bug, you'll need to export the CZI files to OME-TIFF files from ZEN, then generate tiled pyramidal images with the `pyramid-creator` package that you can find [here](https://github.com/TeamNCMC/pyramid-creator).
 
 ## Markdown (.md) files
 [Markdown](https://en.wikipedia.org/wiki/Markdown) is a markup language to create formatted text. It is basically a simple text file that could be opened with any text editor software (notepad and the like), but features specific tags to format the text with heading levels, typesetting (**bold**, *itallic*), [links](#markdown-md-files), lists... This very page is actually written in markdown, and the engine that builds it renders the text in a nicely formatted manner.
@@ -42,7 +42,7 @@ In the event you experience this bug, you'll need to export the CZI files to OME
 If you open a .md file with [vscode](https://code.visualstudio.com/) for example, you'll get a magnigying glass on the top right corner to switch to the rendered version of the file.
 
 ## TOML (.toml) files
-[TOML](https://toml.io/en/), or Tom's Obvious Minimal Language, is a configuration file format (similar to [YAML](https://yaml.org/)). Again, it is basically a simple text file that can be opened with any text editor and is human-readable, but also computer-readable. This means that it is easy for most software and programming language to parse the file to associate a variable (or "key") to a value, thus making it a good file format for configuration. It is used in `histoquant` (see [The configuration files](main-configuration-files.md) page).
+[TOML](https://toml.io/en/), or Tom's Obvious Minimal Language, is a configuration file format (similar to [YAML](https://yaml.org/)). Again, it is basically a simple text file that can be opened with any text editor and is human-readable, but also computer-readable. This means that it is easy for most software and programming language to parse the file to associate a variable (or "key") to a value, thus making it a good file format for configuration. It is used in `cuisto` (see [The configuration files](main-configuration-files.md) page).
 
 The syntax looks like this :
 ```toml
@@ -62,6 +62,6 @@ You can check the full specification of this language [here](https://toml.io/en/
 CSV (or TSV) stands for Comma-Separated Values (or Tab-Separated Values) and is, once again, a simple text file formatted in a way that allows LibreOffice Calc (or Excel) to open them as a table. Lines of the table are delimited with new lines, and columns are separated with commas (`,`) or tabulations. Those files are easily parsed by programming languages (including Python). QuPath can export annotations and detections measurements in TSV format.
 
 ## JSON and GeoJSON files
-[JSON](https://www.json.org/json-en.html) is a "data-interchange format". It is used to store data, very much like [toml](#toml-toml-files), but supports more complex data and is more efficient to read and write, but is less human-readable. It is used in `histoquant` to store fibers-like objects coordinates, as they can contain several millions of points (making CSV not usable).
+[JSON](https://www.json.org/json-en.html) is a "data-interchange format". It is used to store data, very much like [toml](#toml-toml-files), but supports more complex data and is more efficient to read and write, but is less human-readable. It is used in `cuisto` to store fibers-like objects coordinates, as they can contain several millions of points (making CSV not usable).
 
 [GeoJson](https://geojson.org/) is a file format used to store geographic data structures, basically objects coordinates with various shapes. It is based on and compatible with JSON, which makes it easy to parse in numerous programming language. It used in QuPath to import and export objects, that can be point, line, polygons...

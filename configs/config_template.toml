@@ -1,5 +1,5 @@
 ########################################################################################
-# Configuration file for histoquant package
+# Configuration file for cuisto package
 # -----------------------------------------
 # This is a TOML file. It maps a key to a value : `key = value`.
 # Each key must exist and be filled. The keys' names can't be modified, except:
@@ -11,7 +11,7 @@
 #   - the TOML specification : https://toml.io/en/
 #   - matplotlib colors : https://matplotlib.org/stable/gallery/color/color_demo.html
 #
-# Configuration file part of the python histoquant package.
+# Configuration file part of the python cuisto package.
 # version : 2.1
 ########################################################################################
 

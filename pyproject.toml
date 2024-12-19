@@ -1,12 +1,12 @@
 [project]
-name = "histoquant"
-version = "2024.12.10"
+name = "cuisto"
+version = "2024.12.19"
 authors = [{ name = "Guillaume Le Goc", email = "g.legoc@posteo.org" }]
 description = "Quantification of objects in histological slices"
 readme = "README.md"
 requires-python = ">=3.12"
 
-license = { text = "GPLv3" }
+license = { text = "MIT" }
 
 classifiers = ["Programming Language :: Python :: 3.12"]
 
@@ -46,16 +46,14 @@ doc = [
 ]
 
 [project.urls]
-"Source Code" = "https://github.com/TeamNCMC/histoquant"
+"Source Code" = "https://github.com/TeamNCMC/cuisto"
 
 [build-system]
-requires = ["setuptools", "wheel"]
-build-backend = "setuptools.build_meta"
+requires = ["hatchling"]
+build-backend = "hatchling.build"
 
 [tool.hatch.build]
-include = [
-    "histoquant"
-]
+include = ["cuisto"]
 
 [tool.ruff]
 line-length = 88

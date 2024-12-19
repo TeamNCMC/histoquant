@@ -1,1 +1,1 @@
-:::histoquant.seg
+:::cuisto.seg

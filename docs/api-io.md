@@ -1,1 +1,1 @@
-:::histoquant.io
+:::cuisto.io
