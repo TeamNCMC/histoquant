@@ -10,14 +10,15 @@ conda create -c conda-forge -n cuisto-env python=3.12
 ```
 conda activate cuisto-env
 ```
-4. [Download](https://github.com/TeamNCMC/cuisto/releases/latest) the latest release .zip, unzip it and install it with pip, from inside the `cuisto-xxx` folder :
+4. Install `cuisto`
 ```
-pip install .
+pip install cuisto
 ```
-If you want to build the doc :
+If you want to build the doc locally :
 ```
-pip install .[doc]
+pip install cuisto[doc]
 ```
+5. Check the [Examples section](https://teamncmc.github.io/cuisto/main-using-notebooks.html) !
 
 ## Slow start
 !!! tip
@@ -73,8 +74,7 @@ The following commands should be run from a terminal (PowerShell). Remember that
     ```
     conda create -c conda-forge -n cuisto-env python=3.12
     ```
-    2. Get a copy of the `cuisto` Source code .zip package, from the [Releases](https://github.com/TeamNCMC/cuisto/releases/latest) page.
-    3. We need to install it *inside* the `cuisto-env` environment we just created. First, you need to *activate* the `cuisto-env` environment :
+    2. We need to install it *inside* the `cuisto-env` environment we just created. First, you need to *activate* the `cuisto-env` environment :
     ```bash
     conda activate cuisto-env
     ```
@@ -83,27 +83,15 @@ The following commands should be run from a terminal (PowerShell). Remember that
     (cuisto-env) PS C:\Users\myname>
     ```
     This means that Python packages will now be installed in the `cuisto-env` environment and won't conflict with other toolboxes you might be using.
-    Then, we use `pip` to install `cuisto`. `pip` was installed with Python, and will scan the `cuisto` folder, specifically the "pyproject.toml" file that lists all the required dependencies. To do so, you can either :
-        +  
-        ```bash
-        pip install /path/to/cuisto
-        ```
-        + Change directory from the terminal :
-        ```
-        cd /path/to/cuisto
-        ```
-        Then install the package, "." denotes "here" :
-        ```
-        pip install .
-        ```
-        + Use the file explorer to get to the `cuisto` folder, use ++shift+right-button++ to "Open PowerShell window here" and run :
-        ```
-        pip install .
-        ```
+    3. Then, we use `pip` to install `cuisto`. `pip` was installed with Python, and will fetch the latest release from PyPI.
+    ```bash
+    pip install cuisto
+    ```
+    4. Get a copy of the `cuisto` Source code .zip package, from the [Releases](https://github.com/TeamNCMC/cuisto/releases/latest) page, to have access to all the utility scripts in the `scripts/` folder.
 
 `cuisto` is now installed inside the `cuisto-env` environment and will be available in Python from that environment !
 
 !!! tip
-    You will need to perform step 3. each time you want to update the package.
+    You can run `pip install cuisto --upgrade` from the `cuisto-env` environment to update the package.
 
-If you already have registered data and cells in QuPath, you can export Annotations and Detections as TSV files and head to the [Example](main-using-notebooks.md) section.
+If you already have registered data and cells in QuPath, you can export Annotations and Detections as TSV files and head to the [Example](main-using-notebooks.md) section. Otherwise, check out the Guides section on the left panel.

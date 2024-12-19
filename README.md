@@ -10,27 +10,26 @@ Check the full documentation : [https://teamncmc.github.io/cuisto](https://teamn
 Steps 1-3 below need to be performed only once. If Anaconda or conda is already installed, skip steps 1-2 and use the Anaconda prompt instead.
 1. Install [Miniforge](https://conda-forge.org/download/), as user, add conda to PATH and make it the default interpreter.
 2. Open a terminal (PowerShell in Windows). run : `conda init` and restart the terminal.
-3. Create a virtual environment named "hq" with Python 3.12:
+3. Create a virtual environment named "cuisto-env" with Python 3.12 :
+    ```bash
+    conda create -n cuisto-env python=3.12
     ```
-    conda create -n hq python=3.12
+4. Activate the environment :
+    ```bash
+    conda activate cuisto-env
+    ```bash
+5. Install `cuisto` :
     ```
-4. Activate the environment:
+    pip install cuisto
     ```
-    conda activate hq
-    ```
-5. Download the latest release from [here](https://github.com/TeamNCMC/cuisto/releases/latest) (choose "Source code (zip)) and unzip it on your computer.
-6. Browse to the repository from the terminal and install the `cuisto` package:
-    ```
-    cd /path/to/the/unzipped/folder
-    pip install .
-    ```
+6. (Optional) Download the latest release from [here](https://github.com/TeamNCMC/cuisto/releases/latest) (choose "Source code (zip)) and unzip it on your computer. You can copy the `scripts/` folder to get access to the QuPath and Python scripts. You can check the notebooks in `docs/demo_notebooks` as well !
 
-The `cuisto` will be then available in Python from anywhere as long as the `hq` conda environment is activated. You can get started by looking and using the [Jupyter notebooks](#using-notebooks).
+The `cuisto` will be then available in Python from anywhere as long as the `cuisto-env` conda environment is activated. You can get started by looking and using the [Jupyter notebooks](#using-notebooks).
 
 For more complete installation instructions, see the [documentation](https://teamncmc.github.io/cuisto/main-getting-started.html#slow-start).
 
 ## Using notebooks
-Some Jupyter notebooks are available in the "docs/demo_notebooks" folder. You can open them in an IDE (such as [vscode](https://code.visualstudio.com/), select the "hq" environment as kernel in the top right) or in the Jupyter web interface (`jupyter notebook` in the terminal, with the "hq" environment activated).
+Some Jupyter notebooks are available in the "docs/demo_notebooks" folder. You can open them in an IDE (such as [vscode](https://code.visualstudio.com/), select the "cuisto-env" environment as kernel in the top right) or in the Jupyter web interface (`jupyter notebook` in the terminal, with the "cuisto-env" environment activated).
 
 ## Brain structures
 You can generate brain structures outlines coordinates in three projections (coronal, sagittal, top-view) with the script in scripts/atlas/generate_atlas_outline.py. They are used to overlay brain regions outlines in 2D projection density maps. It might take a while so you can also grab a copy of those files here:
