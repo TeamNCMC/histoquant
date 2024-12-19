@@ -1,1 +1,1 @@
-:::histoquant.display
+:::cuisto.display

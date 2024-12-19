@@ -1,4 +1,4 @@
-"""config module, part of histoquant.
+"""config module, part of cuisto.
 
 Contains the Config class.
 
@@ -8,7 +8,7 @@ import tomllib
 import warnings
 
 from brainglobe_atlasapi import BrainGlobeAtlas
-from histoquant import utils
+from cuisto import utils
 
 
 class Config:
@@ -42,7 +42,7 @@ class Config:
         self.get_leaves_list()
 
     def get_blacklist(self):
-        """Wraps histoquant.utils.get_blacklist."""
+        """Wraps cuisto.utils.get_blacklist."""
 
         self.atlas["blacklist"] = utils.get_blacklist(
             self.files["blacklist"], self.bg_atlas

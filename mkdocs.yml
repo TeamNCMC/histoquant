@@ -1,5 +1,5 @@
-site_name: histoquant
-repo_url: https://github.com/TeamNCMC/histoquant
+site_name: cuisto
+repo_url: https://github.com/TeamNCMC/cuisto
 site_description: Quantify histological data
 site_author: Guillaume Le Goc
 copyright: Julien Bouvier lab -- NeuroPSI -- CNRS/University Paris-Saclay UMR 9197
@@ -49,13 +49,13 @@ nav:
     - demo_notebooks/density_map.ipynb
     - demo_notebooks/fibers_length_multi.ipynb
   - Package reference:
-    - histoquant.config: api-config.md
-    - histoquant.compute: api-compute.md
-    - histoquant.process: api-process.md
-    - histoquant.display: api-display.md
-    - histoquant.utils: api-utils.md
-    - histoquant.io: api-io.md
-    - histoquant.seg: api-seg.md
+    - cuisto.config: api-config.md
+    - cuisto.compute: api-compute.md
+    - cuisto.process: api-process.md
+    - cuisto.display: api-display.md
+    - cuisto.utils: api-utils.md
+    - cuisto.io: api-io.md
+    - cuisto.seg: api-seg.md
   - Scripts reference:
     - segment_images: api-script-segment.md
     - qupath_script_runner: api-script-qupath-script-runner.md

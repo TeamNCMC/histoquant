@@ -4,13 +4,13 @@
 1. Install QuPath, ABBA and conda.
 2. Create an environment :
 ```
-conda create -c conda-forge -n hq python=3.12
+conda create -c conda-forge -n cuisto-env python=3.12
 ```
 3. Activate it :
 ```
-conda activate hq
+conda activate cuisto-env
 ```
-4. [Download](https://github.com/TeamNCMC/histoquant/releases/latest) the latest release .zip, unzip it and install it with pip, from inside the `histoquant-xxx` folder :
+4. [Download](https://github.com/TeamNCMC/cuisto/releases/latest) the latest release .zip, unzip it and install it with pip, from inside the `cuisto-xxx` folder :
 ```
 pip install .
 ```
@@ -21,7 +21,7 @@ pip install .[doc]
 
 ## Slow start
 !!! tip
-    If all goes well, you shouldn't need any admin rights to install the various pieces of software used before `histoquant`.
+    If all goes well, you shouldn't need any admin rights to install the various pieces of software used before `cuisto`.
 
 !!! danger "Important"
     Remember to cite *all* softwares you use ! See [Citing](main-citing.md).
@@ -30,13 +30,13 @@ pip install .[doc]
 QuPath is an "open source software for bioimage analysis". You can install it from the official website : [https://qupath.github.io/](https://qupath.github.io/).  
 The documentation is quite clear and comprehensive : [https://qupath.readthedocs.io/en/stable/index.html](https://qupath.readthedocs.io/en/stable/index.html).
 
-This is where you'll create QuPath projects, in which you'll be able to browse your images, annotate them, import registered brain regions and find objects of interests (via automatic segmentation, thresholding, pixel classification, ...). Then, those annotations and detections can be exported to be processed by `histoquant`.
+This is where you'll create QuPath projects, in which you'll be able to browse your images, annotate them, import registered brain regions and find objects of interests (via automatic segmentation, thresholding, pixel classification, ...). Then, those annotations and detections can be exported to be processed by `cuisto`.
 
 ### Aligning Big Brain and Atlases (ABBA)
 This is the tool you'll use to register 2D histological sections to 3D atlases. See the [dedicated page](guide-install-abba.md).
 
 ### Python virtual environment manager (`conda`)
-The `histoquant` package is written in Python. It depends on scientific libraries (such as [NumPy](https://numpy.org/), [pandas](https://pandas.pydata.org/) and many more). Those libraries need to be installed in versions that are compatible with each other and with `histoquant`. To make sure those versions do not conflict with other Python tools you might be using (`deeplabcut`, `abba_python`, ...), we will install `histoquant` and its dependencies in a dedicated *virtual environment*.
+The `cuisto` package is written in Python. It depends on scientific libraries (such as [NumPy](https://numpy.org/), [pandas](https://pandas.pydata.org/) and many more). Those libraries need to be installed in versions that are compatible with each other and with `cuisto`. To make sure those versions do not conflict with other Python tools you might be using (`deeplabcut`, `abba_python`, ...), we will install `cuisto` and its dependencies in a dedicated *virtual environment*.
 
 [`conda`](https://docs.conda.io/en/latest/) is a software that takes care of this. It comes with a "base" environment, from which we will create and manage other, project-specific environments. It is also used to download and install python in each of those environments, as well as third-party libraries. `conda` in itself is free and open-source and can be used freely by anyone.
 
@@ -65,43 +65,43 @@ This is why it is *highly* recommended to install Miniconda instead, a minimal i
     If Anaconda is already installed and you don't have the rights to uninstall it, you'll have to use it instead. You can launch the "Anaconda Prompt (PowerShell)", run `conda init`. Open a regular PowerShell window and run `conda config --add channels conda-forge`, so that subsequent installations and environments creation will fetch required dependencies from conda-forge.
 
 ### Installation
-This section explains how to actually install the `histoquant` package.
+This section explains how to actually install the `cuisto` package.
 The following commands should be run from a terminal (PowerShell). Remember that the `-c conda-forge` bits are not necessary if you installed conda with the miniforge distribution.
 
 !!! example ""
     1. Create a virtual environment with python 3.12 :
     ```
-    conda create -c conda-forge -n hq python=3.12
+    conda create -c conda-forge -n cuisto-env python=3.12
     ```
-    2. Get a copy of the `histoquant` Source code .zip package, from the [Releases](https://github.com/TeamNCMC/histoquant/releases/latest) page.
-    3. We need to install it *inside* the `hq` environment we just created. First, you need to *activate* the `hq` environment :
+    2. Get a copy of the `cuisto` Source code .zip package, from the [Releases](https://github.com/TeamNCMC/cuisto/releases/latest) page.
+    3. We need to install it *inside* the `cuisto-env` environment we just created. First, you need to *activate* the `cuisto-env` environment :
     ```bash
-    conda activate hq
+    conda activate cuisto-env
     ```
     Now, the prompt should look like this :
     ```bash
-    (hq) PS C:\Users\myname>
+    (cuisto-env) PS C:\Users\myname>
     ```
-    This means that Python packages will now be installed in the `hq` environment and won't conflict with other toolboxes you might be using.
-    Then, we use `pip` to install `histoquant`. `pip` was installed with Python, and will scan the `histoquant` folder, specifically the "pyproject.toml" file that lists all the required dependencies. To do so, you can either :
+    This means that Python packages will now be installed in the `cuisto-env` environment and won't conflict with other toolboxes you might be using.
+    Then, we use `pip` to install `cuisto`. `pip` was installed with Python, and will scan the `cuisto` folder, specifically the "pyproject.toml" file that lists all the required dependencies. To do so, you can either :
         +  
         ```bash
-        pip install /path/to/histoquant
+        pip install /path/to/cuisto
         ```
         + Change directory from the terminal :
         ```
-        cd /path/to/histoquant
+        cd /path/to/cuisto
         ```
         Then install the package, "." denotes "here" :
         ```
         pip install .
         ```
-        + Use the file explorer to get to the `histoquant` folder, use ++shift+right-button++ to "Open PowerShell window here" and run :
+        + Use the file explorer to get to the `cuisto` folder, use ++shift+right-button++ to "Open PowerShell window here" and run :
         ```
         pip install .
         ```
 
-`histoquant` is now installed inside the `hq` environment and will be available in Python from that environment !
+`cuisto` is now installed inside the `cuisto-env` environment and will be available in Python from that environment !
 
 !!! tip
     You will need to perform step 3. each time you want to update the package.

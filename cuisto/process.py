@@ -1,4 +1,4 @@
-"""process module, part of histoquant.
+"""process module, part of cuisto.
 
 Wraps other functions for a click&play behaviour. Relies on the configuration file.
 
@@ -9,7 +9,7 @@ import os
 import pandas as pd
 from tqdm import tqdm
 
-from histoquant import compute, io, utils
+from cuisto import compute, io, utils
 
 
 def process_animal(
@@ -31,7 +31,7 @@ def process_animal(
         Animal ID.
     df_annotations, df_detections : pd.DataFrame
         DataFrames of QuPath Annotations and Detections.
-    cfg : histoquant.Config
+    cfg : cuisto.Config
         The configuration loaded from TOML configuration file.
     compute_distributions : bool, optional
         If False, do not compute the 1D distributions and return an empty list.Default
@@ -185,7 +185,7 @@ def process_animals(
         Base working directory, containing `animals` folders.
     animals : list-like of str
         List of animals ID.
-    cfg: histoquant.Config
+    cfg: cuisto.Config
         Configuration object.
     out_fmt : {None, "h5", "csv", "tsv", "xslx", "pickle"}
         Output file(s) format, if None, nothing is saved (default).

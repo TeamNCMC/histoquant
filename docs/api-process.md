@@ -1,1 +1,1 @@
-:::histoquant.process
+:::cuisto.process

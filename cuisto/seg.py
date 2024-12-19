@@ -1,4 +1,4 @@
-"""seg module, part of histoquant.
+"""seg module, part of cuisto.
 
 Functions for segmentating probability map stored as an image.
 

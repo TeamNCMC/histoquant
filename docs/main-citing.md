@@ -1,5 +1,5 @@
 # Citing
-While `histoquant` does not have a reference paper as of now, you can reference the GitHub repository.
+While `cuisto` does not have a reference paper as of now, you can reference the GitHub repository.
 
 Please make sure to cite *all* the softwares used in your research. Citations are usually the only metric used by funding agencies, so citing properly the tools used in your research ensures the continuation of those projects.
 

@@ -2,7 +2,7 @@
 Template to show how to run groovy script with QuPath, multi-threaded.
 """
 
-import histoquant.tools.qupath_script_runner as qsr
+import cuisto.tools.qupath_script_runner as qsr
 
 # --- Parameters
 QPROJ_PATH = "/path/to/qupath/project.qproj"

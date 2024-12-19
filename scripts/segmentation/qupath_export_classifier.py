@@ -12,7 +12,7 @@ The `QPROJ_PATH` variable can be overridden directly.
 
 import os
 
-from histoquant.tools import qupath_script_runner as qsr
+from cuisto.tools import qupath_script_runner as qsr
 
 # --- Parameters
 ANIMAL = "mouse0"

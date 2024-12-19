@@ -1,4 +1,4 @@
-"""display module, part of histoquant.
+"""display module, part of cuisto.
 
 Contains display functions, essentially wrapping matplotlib and seaborn functions.
 
@@ -12,7 +12,7 @@ import pandas as pd
 import seaborn as sns
 from matplotlib import patches
 
-from histoquant import utils
+from cuisto import utils
 
 
 def add_injection_patch(X: list, ax: plt.Axes, **kwargs) -> plt.Axes:

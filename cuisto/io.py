@@ -1,4 +1,4 @@
-"""io module, part of histoquant.
+"""io module, part of cuisto.
 
 Contains loading and saving functions.
 
@@ -7,7 +7,7 @@ Contains loading and saving functions.
 import os
 
 from brainglobe_atlasapi import BrainGlobeAtlas
-from histoquant import utils
+from cuisto import utils
 import orjson
 import pandas as pd
 
@@ -282,7 +282,7 @@ def load_dfs(
         File(s) format.
     identifiers : list of str, optional
         List of identifiers to load from files. Defaults to the ones saved in
-        histoquant.process.process_animals().
+        cuisto.process.process_animals().
 
     Returns
     -------

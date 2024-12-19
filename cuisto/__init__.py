@@ -1,4 +1,4 @@
-"""histoquant package.
+"""cuisto package.
 Perform quantification of objects in registered and segmented histological slices.
 """
 

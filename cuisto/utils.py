@@ -1,4 +1,4 @@
-"""utils module, part of histoquant.
+"""utils module, part of cuisto.
 
 Contains utilities functions.
 

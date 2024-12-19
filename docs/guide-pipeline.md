@@ -1,5 +1,5 @@
 # Pipeline
-While you can use QuPath and `histoquant` functionalities as you see fit, there exists a pipeline version of those. It requires a specific structure to store files (so that the different scripts know where to look for data). It also requires that you have detections stored as [geojson](tips-formats.md#json-and-geojson-files) files, which can be achieved using a pixel classifier and further segmentation (see [here](guide-qupath-objects.md#probability-map-segmentation)) for example.
+While you can use QuPath and `cuisto` functionalities as you see fit, there exists a pipeline version of those. It requires a specific structure to store files (so that the different scripts know where to look for data). It also requires that you have detections stored as [geojson](tips-formats.md#json-and-geojson-files) files, which can be achieved using a pixel classifier and further segmentation (see [here](guide-qupath-objects.md#probability-map-segmentation)) for example.
 
 ## Purpose
 This is especially useful to perform quantification for several animals at once, where you'll only need to specify the root directory and the animals identifiers that should be pooled together, instead of having to manually specify each detections and annotations files.
@@ -26,7 +26,7 @@ Three main scripts and function are used within the pipeline :
 
 ## Directory structure
 Following a specific directory structure ensures subsequent scripts and functions can find required files. The good news is that this structure will mostly be created automatically using the segmentation scripts (from QuPath and Python), as long as you stay consistent filling the parameters of each script.
-The structure expected by the groovy all-in-one script and `histoquant` batch-process function is the following :
+The structure expected by the groovy all-in-one script and `cuisto` batch-process function is the following :
 
 ```
 some_directory/
@@ -71,7 +71,7 @@ some_directory/
 
 ## Usage
 !!! tip
-    Remember that this is merely an example pipeline, you can shortcut it at any points, as long as you end up with TSV files following the [requirements](guide-prepare-qupath.md#qupath-requirements) for `histoquant`.
+    Remember that this is merely an example pipeline, you can shortcut it at any points, as long as you end up with TSV files following the [requirements](guide-prepare-qupath.md#qupath-requirements) for `cuisto`.
 
 1. [Create](guide-qupath-objects.md#qupath-project) a QuPath project.
 2. [Register](guide-register-abba.md) your images on an atlas with ABBA and export the registration back to QuPath.
@@ -82,7 +82,7 @@ some_directory/
 7. Then, analysing your data with any number of animals should be as easy as executing those lines in Python (either from IPython directly or in a script to easily run it later) :
 
 ```python linenums="1"
-import histoquant as hq
+import cuisto
 
 # Parameters
 wdir = "/path/to/some_directory"
@@ -91,15 +91,15 @@ config_file = "/path/to/your/config.toml"
 output_format = "h5"  # to save the quantification values as hdf5 file
 
 # Processing
-cfg = hq.Config(config_file)
-df_regions, dfs_distributions, df_coordinates = hq.process.process_animals(
+cfg = cuisto.Config(config_file)
+df_regions, dfs_distributions, df_coordinates = cuisto.process.process_animals(
     wdir, animals, cfg, out_fmt=output_format
 )
 
 # Display
-hq.display.plot_regions(df_regions, cfg)
-hq.display.plot_1D_distributions(dfs_distributions, cfg, df_coordinates=df_coordinates)
-hq.display.plot_2D_distributions(df_coordinates, cfg)
+cuisto.display.plot_regions(df_regions, cfg)
+cuisto.display.plot_1D_distributions(dfs_distributions, cfg, df_coordinates=df_coordinates)
+cuisto.display.plot_2D_distributions(df_coordinates, cfg)
 ```
 
 !!! tip
