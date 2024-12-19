@@ -49,7 +49,7 @@ In contrast, conda-forge is a community-run repository that contains more numero
 
 Furthermore, the "base" conda environment installed with the Anaconda distribution is bloated and already contains tons of libraries, and tends to self-destruct at some point (eg. becomes unable to resolve the inter-dependencies), which makes you unable to install new libraries nor create new environments.
 
-This is why it is *highly* recommended to install Miniconda instead, a minimal installer for conda, and configure it to use the free, community-run channel conda-forge, or, even better, use Miniforge which is basically the same but pre-configured to use conda-forge. The only downside is that will not get the Anaonda graphical user interface and you'll need to use the terminal instead, but worry not ! We got you covered.
+This is why it is *highly* recommended to install Miniconda instead, a minimal installer for conda, and configure it to use the free, community-run channel conda-forge, or, even better, use Miniforge which is basically the same but pre-configured to use conda-forge. The only downside is that will not get the Anaconda graphical user interface and you'll need to use the terminal instead, but worry not ! We got you covered.
 
 !!! example ""
     1. Download and install [Miniforge](https://conda-forge.org/download/) (choose the latest release for your system). During the installation, choose to install for the current user, add conda to PATH and make python the default interpreter.
