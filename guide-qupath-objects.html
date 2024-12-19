@@ -1,0 +1,1693 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Quantify histological data">
+      
+      
+        <meta name="author" content="Guillaume Le Goc">
+      
+      
+      
+        <link rel="prev" href="guide-create-pyramids.html">
+      
+      
+        <link rel="next" href="guide-register-abba.html">
+      
+      
+      <link rel="icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.49">
+    
+    
+      
+        <title>Detect objects with QuPath - cuisto</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.6f8fc17f.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+        <script src="assets/external/unpkg.com/iframe-worker/shim.js"></script>
+      
+    
+    
+      
+        
+        
+        
+        <link rel="stylesheet" href="assets/external/fonts.googleapis.com/css.49ea35f2.css">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="assets/_mkdocstrings.css">
+    
+      <link rel="stylesheet" href="stylesheets/extra.css">
+    
+      <link rel="stylesheet" href="assets/external/unpkg.com/katex@0/dist/katex.min.css">
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#detect-objects-with-qupath" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="index.html" title="cuisto" class="md-header__button md-logo" aria-label="cuisto" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            cuisto
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Detect objects with QuPath
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="pink" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/TeamNCMC/cuisto" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="index.html" title="cuisto" class="md-nav__button md-logo" aria-label="cuisto" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    cuisto
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/TeamNCMC/cuisto" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introduction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="main-getting-started.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Getting started
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Guides
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Guides
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="guide-install-abba.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Install ABBA
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="guide-create-pyramids.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Create pyramidal OME-TIFF
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Detect objects with QuPath
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="guide-qupath-objects.html" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Detect objects with QuPath
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#qupath-project" class="md-nav__link">
+    <span class="md-ellipsis">
+      QuPath project
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#detect-objects" class="md-nav__link">
+    <span class="md-ellipsis">
+      Detect objects
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Detect objects">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#built-in-cell-detection" class="md-nav__link">
+    <span class="md-ellipsis">
+      Built-in cell detection
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pixel-classifier" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pixel classifier
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Pixel classifier">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#train-a-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      Train a model
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#built-in-create-objects" class="md-nav__link">
+    <span class="md-ellipsis">
+      Built-in create objects
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#probability-map-segmentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Probability map segmentation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#third-party-extensions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Third-party extensions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Third-party extensions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#instanseg" class="md-nav__link">
+    <span class="md-ellipsis">
+      InstanSeg
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stardist" class="md-nav__link">
+    <span class="md-ellipsis">
+      Stardist
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cellpose" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cellpose
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sam" class="md-nav__link">
+    <span class="md-ellipsis">
+      SAM
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="guide-register-abba.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Registration with ABBA
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="guide-prepare-qupath.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Prepare QuPath data
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="guide-pipeline.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Pipeline
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Tips
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Tips
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="tips-formats.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Data format
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="tips-qupath.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    QuPath
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="tips-abba.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ABBA
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="tips-brain-contours.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Brain contours
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="main-configuration-files.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    The configuration files
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Examples
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Examples
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="main-using-notebooks.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Using notebooks
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="demo_notebooks/cells_distributions.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Cells distributions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="demo_notebooks/fibers_coverage.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Fibers coverage
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="demo_notebooks/density_map.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Density map
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="demo_notebooks/fibers_length_multi.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Fibers length in multi animals
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Package reference
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            Package reference
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="api-config.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    cuisto.config
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="api-compute.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    cuisto.compute
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="api-process.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    cuisto.process
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="api-display.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    cuisto.display
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="api-utils.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    cuisto.utils
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="api-io.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    cuisto.io
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="api-seg.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    cuisto.seg
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Scripts reference
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            Scripts reference
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="api-script-segment.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    segment_images
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="api-script-qupath-script-runner.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    qupath_script_runner
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="main-getting-help.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Getting help
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="main-citing.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Citing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#qupath-project" class="md-nav__link">
+    <span class="md-ellipsis">
+      QuPath project
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#detect-objects" class="md-nav__link">
+    <span class="md-ellipsis">
+      Detect objects
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Detect objects">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#built-in-cell-detection" class="md-nav__link">
+    <span class="md-ellipsis">
+      Built-in cell detection
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pixel-classifier" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pixel classifier
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Pixel classifier">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#train-a-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      Train a model
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#built-in-create-objects" class="md-nav__link">
+    <span class="md-ellipsis">
+      Built-in create objects
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#probability-map-segmentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Probability map segmentation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#third-party-extensions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Third-party extensions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Third-party extensions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#instanseg" class="md-nav__link">
+    <span class="md-ellipsis">
+      InstanSeg
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stardist" class="md-nav__link">
+    <span class="md-ellipsis">
+      Stardist
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cellpose" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cellpose
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sam" class="md-nav__link">
+    <span class="md-ellipsis">
+      SAM
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+
+
+
+                  
+
+  
+  
+
+
+<h1 id="detect-objects-with-qupath">Detect objects with QuPath<a class="headerlink" href="#detect-objects-with-qupath" title="Permanent link">#</a></h1>
+<p>The <a href="https://qupath.readthedocs.io/en/stable/">QuPath documentation</a> is quite extensive, detailed, very well explained and contains full guides on how to create a QuPath project and how to find objects of interests. It is therefore a highly recommended read, nevertheless, you will find below some quick reminders.</p>
+<h2 id="qupath-project">QuPath project<a class="headerlink" href="#qupath-project" title="Permanent link">#</a></h2>
+<p>QuPath works with <a href="https://qupath.readthedocs.io/en/stable/docs/tutorials/projects.html">projects</a>. It is basically a folder with a main <code>project.qproj</code> file, which is a <a href="tips-formats.html#json-and-geojson-files">JSON</a> file that contains all the data about your images <em>except</em> the images themselves. Algonside, there is a <code>data</code> folder with an entry for each image, that stores the thumbnails, metadata about the image and detections and annotations <em>but</em>, again, <em>not</em> the image itself. The actual images can be stored anywhere (including a remote server), the QuPath project merely contains the information needed to fetch them and display them. QuPath will <em>never</em> modify your image data.</p>
+<p>This design makes the QuPath project itself lightweight (should never exceed 500MB even with millions of detections), and portable : upon opening, if QuPath is not able to find the images where they should be, it will ask for their new locations.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>It is recommended to create the QuPath project locally on your computer, to avoid any risk of conflicts if two people open it at the same time. Nevertheless, you should backup the project regularly on a remote server.</p>
+</div>
+<p>To create a new project, simply drag &amp; drop an empty folder into QuPath window and accept to create a new empty project. Then, add images :</p>
+<ul>
+<li>If you have a single file, just drag &amp; drop it in the main window.</li>
+<li>If you have several images, in the left panel, click <code>Add images</code>, then <code>Choose files</code> on the bottom. Drag &amp; drop does not really work as the images will not be sorted properly.</li>
+</ul>
+<p>Then, choose the following options :</p>
+<dl>
+<dt><code>Image server</code></dt>
+<dd>
+<p>Default (let QuPath decide)</p>
+</dd>
+<dt><code>Set image type</code></dt>
+<dd>
+<p>Most likely, fluorescence</p>
+</dd>
+<dt><code>Rotate image</code></dt>
+<dd>
+<p>No rotation (unless all your images should be rotated)</p>
+</dd>
+<dt><code>Optional args</code></dt>
+<dd>
+<p>Leave empty</p>
+</dd>
+<dt><code>Auto-generate pyramids</code></dt>
+<dd>
+<p>Uncheck</p>
+</dd>
+<dt><code>Import objects</code></dt>
+<dd>
+<p>Uncheck</p>
+</dd>
+<dt><code>Show image selector</code></dt>
+<dd>
+<p>Might be useful to check if the images are read correctly (mostly for CZI files).</p>
+</dd>
+</dl>
+<h2 id="detect-objects">Detect objects<a class="headerlink" href="#detect-objects" title="Permanent link">#</a></h2>
+<h3 id="built-in-cell-detection">Built-in cell detection<a class="headerlink" href="#built-in-cell-detection" title="Permanent link">#</a></h3>
+<p>QuPath has a built-in cell detection feature, available in <code>Analyze &gt; Cell detection</code>. You hava a full tutorial in the <a href="https://qupath.readthedocs.io/en/stable/docs/tutorials/cell_detection.html">official documentation</a>.</p>
+<p>Briefly, this uses a watershed algorithm to find bright spots and can perform a cell expansion to estimate the full cell shape based on the detected nuclei. Therefore, this works best to segment nuclei but one can expect good performance for cells as well, depending on the imaging and staining conditions.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>In <code>scripts/qupath-utils/segmentation</code>, there is <code>watershedDetectionFilters.groovy</code> which uses this feature from a script. It further allows you to filter out detected cells based on shape measurements as well as fluorescence itensity in several channels and cell compartments.</p>
+</div>
+<h3 id="pixel-classifier">Pixel classifier<a class="headerlink" href="#pixel-classifier" title="Permanent link">#</a></h3>
+<p>Another very powerful and versatile way to segment cells if through machine learning. Note the term "machine" and not "deep" as it relies on statistics theory from the 1980s. QuPath provides an user-friendly interface to that, similar to what <a href="https://www.ilastik.org/">ilastik</a> provides.</p>
+<p>The general idea is to train a model to classify every pixel as a signal or as background. You can find good resources on how to procede in the <a href="https://qupath.readthedocs.io/en/stable/docs/tutorials/pixel_classification.html">official documentation</a> and some additionnal tips and tutorials on Michael Neslon's blog (<a href="https://www.imagescientist.com/mpx-pixelclassifier">here</a> and <a href="https://www.imagescientist.com/brightfield-4-pixel-classifier">here</a>).</p>
+<p>Specifically, you will manually annotate some pixels of objects of interest and background. Then, you will apply some image processing filters (gaussian blur, laplacian...) to reveal specific features in your images (shapes, textures...). Finally, the pixel classifier will fit a model on those pixel values, so that it will be able to predict if a pixel, given the values with the different filters you applied, belongs to an object of interest or to the background.</p>
+<p>This is done in an intuitive GUI with live predictions to get an instant feedback on the effects of the filters and manual annotations.</p>
+<h4 id="train-a-model">Train a model<a class="headerlink" href="#train-a-model" title="Permanent link">#</a></h4>
+<p>First and foremost, you should use a QuPath project dedicated to the training of a pixel classifier, as it is the only way to be able to edit it later on.</p>
+<ol>
+<li>You should choose some images from different animals, with different imaging conditions (staining efficiency and LED intensity) in different regions (eg. with different objects' shape, size, sparsity...). The goal is to get the most diversity of objects you could encounter in your experiments. 10 images is more than enough !</li>
+<li>Import those images to the new, dedicated QuPath project.</li>
+<li>Create the classifications you'll need, "Cells: marker+" for example. The "Ignore*" classification is used for the background.</li>
+<li>Head to <code>Classify &gt; Pixel classification &gt; Train pixel classifier</code>, and turn on <code>Live prediction</code>.</li>
+<li>Load all your images in <code>Load training</code>.</li>
+<li>In <code>Advanced settings</code>, check <code>Reweight samples</code> to help make sure a classification is not over-represented.</li>
+<li>Modify the different parameters :<ul>
+<li><code>Classifier</code> : typically, <code>RTrees</code> or <code>ANN_MLP</code>. This can be changed dynamically afterwards to see which works best for you.</li>
+<li><code>Resolution</code> : this is the pixel size used. This is a trade-off between accuracy and speed. If your objects are only composed of a few pixels, you'll the full resolution, for big objects reducing the resolution will be faster.</li>
+<li><code>Features</code> : this is the core of the process -- where you choose the filters. In <code>Edit</code>, you'll need to choose :<ul>
+<li>The fluorescence channels</li>
+<li>The scales, eg. the size of the filters applied to the image. The bigger, the coarser the filter is. Again, this will depend on the size of the objects you want to segment.</li>
+<li>The features themselves, eg. the filters applied to your images before feeding the pixel values to the model. For starters, you can select them all to see what they look like.</li>
+</ul>
+</li>
+<li><code>Output</code> :<ul>
+<li><code>Classification</code> : QuPath will directly classify the pixels. Use that to <a href="#built-in-create-objects">create objects directly from the pixel classifier</a> within QuPath.</li>
+<li><code>Probability</code> : this will output an image where each pixel is its probability to belong to each of the classifications. This is useful to <a href="#probability-map-segmentation">create objects externally</a>.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>In the bottom-right corner of the pixel classifier window, you can select to display each filters individually. Then in the QuPath main window, hitting <span class="keys"><kbd class="key-c">C</kbd></span> will switch the view to appreciate what the filter looks like. Identify the ones that makes your objects the most distinct from the background as possible. Switch back to <code>Show classification</code> once you begin to make annotations.</li>
+<li>
+<p>Begin to annotate ! Use the Polyline annotation tool (<span class="keys"><kbd class="key-v">V</kbd></span>) to classify <strong>some</strong> pixels belonging to an object and <strong>some</strong> pixels belonging to the background across your images.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>You can select the <code>RTrees</code> Classifier, then <code>Edit</code> : check the <code>Calculate variable importance</code> checkbox. Then in the log (<span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-shift">Shift</kbd><span>+</span><kbd class="key-l">L</kbd></span>), you can inspect the weight each features have. This can help discard some filters to keep only the ones most efficient to distinguish the objects of interest.</p>
+</div>
+</li>
+<li>
+<p>See in live the effect of your annotations on the classification using <span class="keys"><kbd class="key-c">C</kbd></span> and continue until you're satisfied.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>This is <em>machine</em> learning. The lesser annotations, the better, as this will make your model more general and adapt to new images. The goal is to find the <em>minimal</em> number of annotations to make it work.</p>
+</div>
+</li>
+<li>
+<p>Once you're done, give your classifier a name in the text box in the bottom and save it. It will be stored as a <a href="tips-formats.html#json-and-geojson-files">JSON</a> file in the <code>classifiers</code> folder of the QuPath project. This file can be imported in your other QuPath projects.</p>
+</li>
+</ol>
+<h4 id="built-in-create-objects">Built-in create objects<a class="headerlink" href="#built-in-create-objects" title="Permanent link">#</a></h4>
+<p>Once you imported your model JSON file (<code>Classify &gt; Pixel classification &gt; Load pixel classifier</code>, three-dotted menu and <code>Import from file</code>), you can create objects out of it, measure the surface occupied by classified pixels in each annotation or classify existing detections based on the prediction at their centroid.</p>
+<p>In <code>scripts/qupath-utils/segmentation</code>, there is a <code>createDetectionsFromPixelClassifier.groovy</code> script to batch-process your project.</p>
+<h4 id="probability-map-segmentation">Probability map segmentation<a class="headerlink" href="#probability-map-segmentation" title="Permanent link">#</a></h4>
+<p>Alternatively, a Python script provided with <code>cuisto</code> can be used to segment the probability map generated by the pixel classifier (the script is located in <code>scripts/segmentation</code>).</p>
+<p>You will first need to export those with the <code>exportPixelClassifierProbabilities.groovy</code> script (located in <code>scripts/qupath-utils</code>).</p>
+<p>Then the segmentation script can :</p>
+<ul>
+<li>find punctal objects as polygons (with a shape) or points (punctal) than can be counted.</li>
+<li>trace fibers with skeletonization to create lines whose lengths can be measured.</li>
+</ul>
+<p>Several parameters have to be specified by the user,  see the segmentation script <a href="api-script-segment.html">API reference</a>. This script will generate <a href="tips-formats.html#json-and-geojson-files">GeoJson</a> files that can be imported back to QuPath with the <code>importGeojsonFiles.groovy</code> script.</p>
+<h3 id="third-party-extensions">Third-party extensions<a class="headerlink" href="#third-party-extensions" title="Permanent link">#</a></h3>
+<p>QuPath being open-source and extensible, there are third-party extensions that implement popular deep learning segmentation algorithms directly in QuPath. They can be used to find objects of interest as detections in the QuPath project and thus integrate nicely with <code>cuisto</code> to quantify them afterwards.</p>
+<h4 id="instanseg">InstanSeg<a class="headerlink" href="#instanseg" title="Permanent link">#</a></h4>
+<p>QuPath extension : <a href="https://github.com/qupath/qupath-extension-instanseg">https://github.com/qupath/qupath-extension-instanseg</a><br />
+Original repository : <a href="https://github.com/instanseg/instanseg">https://github.com/instanseg/instanseg</a><br />
+Reference papers : <a href="https://doi.org/10.48550/arXiv.2408.15954">doi:10.48550/arXiv.2408.15954</a>, <a href="https://doi.org/10.1101/2024.09.04.611150">doi:10.1101/2024.09.04.611150</a></p>
+<h4 id="stardist">Stardist<a class="headerlink" href="#stardist" title="Permanent link">#</a></h4>
+<p>QuPath extension : <a href="https://github.com/qupath/qupath-extension-stardist">https://github.com/qupath/qupath-extension-stardist</a><br />
+Original repository : <a href="https://github.com/stardist/stardist">https://github.com/stardist/stardist</a><br />
+Reference paper : <a href="https://doi.org/10.48550/arXiv.1806.03535">doi:10.48550/arXiv.1806.03535</a></p>
+<p>There is a <code>stardistDetectionFilter.groovy</code> script in <code>scripts/qupath-utils/segmentation</code> to use it from a script which further allows you to filter out detected cells based on shape measurements as well as fluorescence itensity in several channels and cell compartments.</p>
+<h4 id="cellpose">Cellpose<a class="headerlink" href="#cellpose" title="Permanent link">#</a></h4>
+<p>QuPath extension : <a href="https://github.com/BIOP/qupath-extension-cellpose">https://github.com/BIOP/qupath-extension-cellpose</a><br />
+Original repository : <a href="https://github.com/MouseLand/cellpose">https://github.com/MouseLand/cellpose</a><br />
+Reference papers : <a href="https://doi.org/10.1038/s41592-020-01018-x">doi:10.1038/s41592-020-01018-x</a>, <a href="https://doi.org/10.1038/s41592-022-01663-4">doi:10.1038/s41592-022-01663-4</a>, <a href="https://doi.org/10.1101/2024.02.10.579780">doi:10.1101/2024.02.10.579780</a></p>
+<p>There is a <code>cellposeDetectionFilter.groovy</code> script in <code>scripts/qupath-utils/segmentation</code> to use it from a script which further allows you to filter out detected cells based on shape measurements as well as fluorescence itensity in several channels and cell compartments.</p>
+<h4 id="sam">SAM<a class="headerlink" href="#sam" title="Permanent link">#</a></h4>
+<p>QuPath extension : <a href="https://github.com/ksugar/qupath-extension-sam">https://github.com/ksugar/qupath-extension-sam</a><br />
+Original repositories : <a href="https://github.com/ksugar/samapi">samapi</a>, <a href="https://github.com/facebookresearch/segment-anything">SAM</a><br />
+Reference papers : <a href="https://doi.org/10.1101/2023.06.13.544786">doi:10.1101/2023.06.13.544786</a>, <a href="https://doi.org/10.48550/arXiv.2304.02643">doi:10.48550/arXiv.2304.02643</a></p>
+<p>This is more an interactive annotation tool than a fully automatic segmentation algorithm.</p>
+
+
+
+
+
+
+
+  
+    
+  
+  
+    
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Last update">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 19, 2024</span>
+  </span>
+
+    
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Created">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 19, 2024</span>
+  </span>
+
+    
+    
+    
+  </aside>
+
+
+
+
+
+                
+
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="guide-create-pyramids.html" class="md-footer__link md-footer__link--prev" aria-label="Previous: Create pyramidal OME-TIFF">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Create pyramidal OME-TIFF
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="guide-register-abba.html" class="md-footer__link md-footer__link--next" aria-label="Next: Registration with ABBA">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Registration with ABBA
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Julien Bouvier lab -- NeuroPSI -- CNRS/University Paris-Saclay UMR 9197
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": ".", "features": ["navigation.path", "navigation.footer", "navigation.top", "content.code.copy", "content.code.select", "toc.follow"], "search": "assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="assets/javascripts/bundle.88dd0f4e.min.js"></script>
+      
+        <script src="javascripts/katex.js"></script>
+      
+        <script src="assets/external/unpkg.com/katex@0/dist/katex.min.js"></script>
+      
+        <script src="assets/external/unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+      
+        <script src="assets/external/unpkg.com/mermaid@11/dist/mermaid.min.js"></script>
+      
+    
+  </body>
+</html>

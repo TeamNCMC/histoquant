@@ -1,0 +1,1761 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Quantify histological data">
+      
+      
+        <meta name="author" content="Guillaume Le Goc">
+      
+      
+      
+        <link rel="prev" href="guide-qupath-objects.html">
+      
+      
+        <link rel="next" href="guide-prepare-qupath.html">
+      
+      
+      <link rel="icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.49">
+    
+    
+      
+        <title>Registration with ABBA - cuisto</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.6f8fc17f.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+        <script src="assets/external/unpkg.com/iframe-worker/shim.js"></script>
+      
+    
+    
+      
+        
+        
+        
+        <link rel="stylesheet" href="assets/external/fonts.googleapis.com/css.49ea35f2.css">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="assets/_mkdocstrings.css">
+    
+      <link rel="stylesheet" href="stylesheets/extra.css">
+    
+      <link rel="stylesheet" href="assets/external/unpkg.com/katex@0/dist/katex.min.css">
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#registration-with-abba" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="index.html" title="cuisto" class="md-header__button md-logo" aria-label="cuisto" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            cuisto
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Registration with ABBA
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="pink" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/TeamNCMC/cuisto" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="index.html" title="cuisto" class="md-nav__button md-logo" aria-label="cuisto" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    cuisto
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/TeamNCMC/cuisto" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introduction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="main-getting-started.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Getting started
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Guides
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Guides
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="guide-install-abba.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Install ABBA
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="guide-create-pyramids.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Create pyramidal OME-TIFF
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="guide-qupath-objects.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Detect objects with QuPath
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Registration with ABBA
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="guide-register-abba.html" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Registration with ABBA
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#import-a-qupath-project" class="md-nav__link">
+    <span class="md-ellipsis">
+      Import a QuPath project
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#navigation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Navigation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Navigation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#interface" class="md-nav__link">
+    <span class="md-ellipsis">
+      Interface
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#right-panel" class="md-nav__link">
+    <span class="md-ellipsis">
+      Right panel
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#find-position-and-angle" class="md-nav__link">
+    <span class="md-ellipsis">
+      Find position and angle
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#in-plane-registration" class="md-nav__link">
+    <span class="md-ellipsis">
+      In-plane registration
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="In-plane registration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#coarse-linear-manual-deformation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Coarse, linear manual deformation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#automatic-registration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Automatic registration
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#manual-registration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Manual registration
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Manual registration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#from-scratch" class="md-nav__link">
+    <span class="md-ellipsis">
+      From scratch
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#from-a-previous-registration" class="md-nav__link">
+    <span class="md-ellipsis">
+      From a previous registration
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#abba-state-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      ABBA state file
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#export-registration-back-to-qupath" class="md-nav__link">
+    <span class="md-ellipsis">
+      Export registration back to QuPath
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Export registration back to QuPath">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#export-the-registration-from-abba" class="md-nav__link">
+    <span class="md-ellipsis">
+      Export the registration from ABBA
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#import-the-registration-in-qupath" class="md-nav__link">
+    <span class="md-ellipsis">
+      Import the registration in QuPath
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="guide-prepare-qupath.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Prepare QuPath data
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="guide-pipeline.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Pipeline
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Tips
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Tips
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="tips-formats.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Data format
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="tips-qupath.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    QuPath
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="tips-abba.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ABBA
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="tips-brain-contours.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Brain contours
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="main-configuration-files.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    The configuration files
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Examples
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Examples
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="main-using-notebooks.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Using notebooks
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="demo_notebooks/cells_distributions.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Cells distributions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="demo_notebooks/fibers_coverage.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Fibers coverage
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="demo_notebooks/density_map.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Density map
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="demo_notebooks/fibers_length_multi.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Fibers length in multi animals
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Package reference
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            Package reference
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="api-config.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    cuisto.config
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="api-compute.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    cuisto.compute
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="api-process.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    cuisto.process
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="api-display.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    cuisto.display
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="api-utils.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    cuisto.utils
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="api-io.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    cuisto.io
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="api-seg.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    cuisto.seg
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Scripts reference
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            Scripts reference
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="api-script-segment.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    segment_images
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="api-script-qupath-script-runner.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    qupath_script_runner
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="main-getting-help.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Getting help
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="main-citing.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Citing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#import-a-qupath-project" class="md-nav__link">
+    <span class="md-ellipsis">
+      Import a QuPath project
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#navigation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Navigation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Navigation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#interface" class="md-nav__link">
+    <span class="md-ellipsis">
+      Interface
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#right-panel" class="md-nav__link">
+    <span class="md-ellipsis">
+      Right panel
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#find-position-and-angle" class="md-nav__link">
+    <span class="md-ellipsis">
+      Find position and angle
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#in-plane-registration" class="md-nav__link">
+    <span class="md-ellipsis">
+      In-plane registration
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="In-plane registration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#coarse-linear-manual-deformation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Coarse, linear manual deformation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#automatic-registration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Automatic registration
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#manual-registration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Manual registration
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Manual registration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#from-scratch" class="md-nav__link">
+    <span class="md-ellipsis">
+      From scratch
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#from-a-previous-registration" class="md-nav__link">
+    <span class="md-ellipsis">
+      From a previous registration
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#abba-state-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      ABBA state file
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#export-registration-back-to-qupath" class="md-nav__link">
+    <span class="md-ellipsis">
+      Export registration back to QuPath
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Export registration back to QuPath">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#export-the-registration-from-abba" class="md-nav__link">
+    <span class="md-ellipsis">
+      Export the registration from ABBA
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#import-the-registration-in-qupath" class="md-nav__link">
+    <span class="md-ellipsis">
+      Import the registration in QuPath
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+
+
+
+                  
+
+  
+  
+
+
+<h1 id="registration-with-abba">Registration with ABBA<a class="headerlink" href="#registration-with-abba" title="Permanent link">#</a></h1>
+<p>The <a href="https://abba-documentation.readthedocs.io/en/latest/">ABBA documentation</a> is quite extensive and contains guided tutorials and a video tutorial. You should therefore check it out ! Nevertheless, you will find below some quick reminders.</p>
+<h2 id="import-a-qupath-project">Import a QuPath project<a class="headerlink" href="#import-a-qupath-project" title="Permanent link">#</a></h2>
+<p>Always use ABBA with a QuPath project, if you import the images directly it will not be possible to export the results back to QuPath. In the toolbar, head to <code>Import &gt; Import QuPath Project</code>.</p>
+<ul>
+<li>Select the .qproj file corresponding to the QuPath project to be aligned.</li>
+<li>Initial axis position : this is the initial position where to put your stack. It will be modified afterwards.</li>
+<li>Axis increment between slices : this is the spatial spacing, in mm, between two slices. This would correspond to the slice thickness multiplied by the number of set. If your images are ordered from rostral to caudal, set it negative.</li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>ABBA is not the most stable software, it is highly recommended to <a href="#abba-state-file">save</a> in a different file each time you do anything.</p>
+</div>
+<h2 id="navigation">Navigation<a class="headerlink" href="#navigation" title="Permanent link">#</a></h2>
+<h3 id="interface">Interface<a class="headerlink" href="#interface" title="Permanent link">#</a></h3>
+<ul>
+<li><span class="keys"><kbd class="key-left-button">Left Button</kbd></span> + drag to select slices</li>
+<li><span class="keys"><kbd class="key-right-button">Right Button</kbd></span> for display options</li>
+<li><span class="keys"><kbd class="key-right-button">Right Button</kbd></span> + drag to browse the view</li>
+<li><span class="keys"><kbd class="key-middle-button">Middle Button</kbd></span> to zoom in and or out</li>
+</ul>
+<h3 id="right-panel">Right panel<a class="headerlink" href="#right-panel" title="Permanent link">#</a></h3>
+<p>In the right panel, there is everything related to the images, both yours and the atlas.</p>
+<p>In the <code>Atlas Display</code> section, you can turn on and off different channels (the first is the reference image, the last is the regions outlines).
+The <code>Displayed slicing [atlas steps]</code> slider can increase or decrease the number of <em>displayed</em> 2D slices extracted from the 3D volume. It is comfortable to set to to the same spacing as your slices. Remember it is in "altas steps", so for an atlas imaged at 10µm, a 120µm spacing corresponds to 12 atlas steps.</p>
+<p>The <code>Slices Display</code> section lists all your slices. <span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-a">A</kbd></span> to select all, and click on the <code>Vis.</code> header to make them visible. Then, you can turn on and off each channels (generally the NISSL channel and the ChAT channel will be used) by clicking on the corresponding header. Finally, set the display limits clicking on the empty header containing the colors.</p>
+<p><span class="keys"><kbd class="key-right-button">Right Button</kbd></span> in the main view to <code>Change overlap mode</code> twice to get the slices right under the atlas slices.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Every action in ABBA are stored and are cancellable with <span class="keys"><kbd class="key-right-button">Right Button</kbd><span>+</span><kbd class="key-z">Z</kbd></span>, <strong>except</strong> the <a href="#coarse-linear-manual-deformation">Interactive transform</a>.</p>
+</div>
+<h2 id="find-position-and-angle">Find position and angle<a class="headerlink" href="#find-position-and-angle" title="Permanent link">#</a></h2>
+<p>This is the hardest task. You need to drag the slices along the rostro-caudal axis and modify the virtual slicing angle (<code>X Rotation [deg]</code> and <code>Y Rotation [deg]</code> sliders at the bottom of the right panel) until you match the brain structures observed in both your images and the atlas.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>With a high number of slices, most likely, it will be impossible to find a position and slicing angle that works for all your slices. In that case, you should procede in batch, eg. sub-stack of images with a unique position and slicing angle that works for all images in the sub-stack. Then, remove the remaining slices (select them, <span class="keys"><kbd class="key-right-button">Right Button</kbd></span> <code>&gt; Remove Selected Slices</code>), but <strong>do not</strong> remove them from the QuPath project.</p>
+<p>Procede as usual, including <a href="#abba-state-file">saving</a> (note the slices range it corresponds to) and <a href="#export-registration-back-to-qupath">exporting</a> the registration back to QuPath. Then, reimport the project in a fresh ABBA instance, remove the slices that were already registered and redo the whole process with the next sub-stack and so on.</p>
+</div>
+<p>Once you found the correct position and slicing angle, it <strong>must not change</strong> anymore, otherwise the registration operations you perform will not make any sense anymore.</p>
+<h2 id="in-plane-registration">In-plane registration<a class="headerlink" href="#in-plane-registration" title="Permanent link">#</a></h2>
+<p>The next step is to deform your slices to match the corresponding atlas image, extracted from the 3D volume given the position and virtual slicing angle defined at the previous step.</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>ABBA makes the choice to deform <em>your</em> slices to the atlas, but the transformations are invertible. This means that you will still be able to work on your raw data and deform the altas onto it instead.</p>
+</div>
+<p>In image processing, there are two kinds of deformation one can apply on an image :</p>
+<ul>
+<li>Affine (or linear) : simple, image-wide, linear operations - translation, rotation, scaling, shearing.</li>
+<li>Spline (or non-linear) : complex non-linear operations that can allow for local deformation.</li>
+</ul>
+<p>Both can be applied manually or automatically (if the imaging quality allows it).
+You have different tools to achieve this, all of which can be combined in any order, <strong>except</strong> the Interactive transform tool (coarse, linear manual deformation).</p>
+<p>Change the overlap mode (<span class="keys"><kbd class="key-right-button">Right Button</kbd></span>) to overlay the slice onto the atlas regions borders. Select the slice you want to align.</p>
+<h3 id="coarse-linear-manual-deformation">Coarse, linear manual deformation<a class="headerlink" href="#coarse-linear-manual-deformation" title="Permanent link">#</a></h3>
+<p>While not mandatory, if this tool shall be used, it must be before any operation as it is not cancellable.
+Head to <code>Register &gt; Affine &gt; Interactive transform</code>.<br />
+This will open a box where you can rotate, translate and resize the image to make a first, coarse alignment.</p>
+<p>Close the box. Again, this is not cancellable. Afterwards, you're free to apply any numbers of transformations in any order.</p>
+<h3 id="automatic-registration">Automatic registration<a class="headerlink" href="#automatic-registration" title="Permanent link">#</a></h3>
+<p>This uses the <a href="https://elastix.dev">elastix</a> toolbox to compute the transformations needed to best match two images. It is available in both affine and spline mode, in the <code>Register &gt; Affine</code> and <code>Register &gt; Spline</code> menus respectively.</p>
+<p>In both cases, it will open a dialog where you need to choose :</p>
+<ul>
+<li>Atlas channels : the reference image of the atlas, usually channel number 0</li>
+<li>Slices channels : the fluorescence channel that looks like the most to the reference image, usually channel number 0</li>
+<li>Registration re-sampling (micrometers) : the pixel size to resize the images before registration, as it is a computationally intensive task. Going below 20µm won't help much.</li>
+</ul>
+<p>For the Spline mode, there an additional parameter :</p>
+<ul>
+<li>Number of control points along X : the algorithm will set points as a grid in the image and perform the transformations from those. The higher number of points, the more local transformations will be.</li>
+</ul>
+<h3 id="manual-registration">Manual registration<a class="headerlink" href="#manual-registration" title="Permanent link">#</a></h3>
+<p>This uses <a href="https://imagej.net/plugins/bigwarp">BigWarp</a> to manually deform the images with the mouse. It can be done from scratch (eg. you place the points yourself) or from a previous registration (either a previous BigWarp session or elastix in Spline mode).</p>
+<h4 id="from-scratch">From scratch<a class="headerlink" href="#from-scratch" title="Permanent link">#</a></h4>
+<p><code>Register &gt; Spline &gt; BigWarp registration</code> to launch the tool. Choose the atlas that allows you to best see the brain structures (usually the regions outlines channels, the last one), and the reference fluorescence channel.</p>
+<p>It will open two viewers, called "<strong>BigWarp moving image</strong>" and "<strong>BigWarp fixed image</strong>". Briefly, they correspond to the two spaces you're working in, the "Atlas space" and the "Slice space".</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Do not panick yet, while the explanations might be confusing (at least they were to me), in practice, it is easy, intuitive and can even be fun (sometimes, at small dose).</p>
+</div>
+<p>To browse the viewer, use <span class="keys"><kbd class="key-right-button">Right Button</kbd></span> + drag (<span class="keys"><kbd class="key-left-button">Left Button</kbd></span> is used to rotate the viewer), <span class="keys"><kbd class="key-middle-button">Middle Button</kbd></span> zooms in and out.</p>
+<p>The idea is to place points, called landmarks, that <em>always</em> <strong>go in pairs</strong> : one in the moving image and one where it corresponds to in the fixed image (or vice-versa). In practice, we will only work in the <strong>BigWarp fixed image</strong> viewer to place landmarks in both space in one click, then drag it to the corresponding location, with a live feedback of the transformation needed to go from one to another.</p>
+<p>To do so :</p>
+<ol>
+<li>
+<p>Press <span class="keys"><kbd class="key-space">Space</kbd></span> to switch to the "Landmark mode".</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>In "Landmark mode", <span class="keys"><kbd class="key-right-button">Right Button</kbd></span> can't be used to browse the view anymore. To do so, turn off the "Landmark mode" hitting <span class="keys"><kbd class="key-space">Space</kbd></span> again. </p>
+</div>
+</li>
+<li>
+<p>Use <span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-left-button">Left Button</kbd></span> to place a landmark.</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>At least 4 landmarks are needed before activating the live-transform view.</p>
+</div>
+</li>
+<li>
+<p>When there are at least 4 landmarks, hit <span class="keys"><kbd class="key-t">T</kbd></span> to activate the "Transformed" view. <code>Transformed</code> will be written at the bottom.</p>
+</li>
+<li>Hold <span class="keys"><kbd class="key-left-button">Left Button</kbd></span> on a landmark to drag it to deform the image onto the atlas.</li>
+<li>Add as many landmarks as needed, when you're done, find the Fiji window called "Big Warp registration" that opened at the beginning and click <code>OK</code>.</li>
+</ol>
+<div class="admonition tip">
+<p class="admonition-title">Important remarks and tips</p>
+<ul>
+<li>A landmark is a location where you said "this location correspond to this one". Therefore, BigWarp is not allowed to move this particular location. Everywhere else, it is free to transform the image without any restrictions, including the borders. Thus, it is a good idea to <strong>delimit the coarse contour of the brain with landmarks</strong> to constrain the registration.</li>
+<li><span class="keys"><kbd class="key-left-button">Left Button</kbd></span> without holding <span class="keys"><kbd class="key-control">Ctrl</kbd></span> will place a landmark in the fixed image only, without pair, and BigWarp won't like it. To <strong>delete landmarks</strong>, head to the "Landmarks" window that lists all of them. They highlight in the viewer upon selection. Hit <span class="keys"><kbd class="key-delete">Del</kbd></span> to delete one. Alternatively, click on it on the viewer and hit <span class="keys"><kbd class="key-delete">Del</kbd></span>.</li>
+</ul>
+</div>
+<h4 id="from-a-previous-registration">From a previous registration<a class="headerlink" href="#from-a-previous-registration" title="Permanent link">#</a></h4>
+<p>Head to <code>Register &gt; Edit last Registration</code> to work on a previous registration.</p>
+<p>If the previous registration was done with elastix (Spline) or BigWarp, it will launch the BigWarp interface exactly like above, but with landmarks already placed, either on a grid (elastix) or the one you manually placed (BigWarp).</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>It will ask which channels to use, you can modify the channel for your slices to work on two channels successively. For instance, one could make a first registration using the NISSL staining, then refine the motoneurons with the ChAT staining, if available.</p>
+</div>
+<h2 id="abba-state-file">ABBA state file<a class="headerlink" href="#abba-state-file" title="Permanent link">#</a></h2>
+<p>ABBA can save the state you're in, from the <code>File &gt; Save State</code> menu. It will be saved as a <code>.abba</code> file, which is actually a zip archive containing a bunch of <a href="tips-formats.html#json-and-geojson-files">JSON</a>, listing every actions you made and in <em>which order</em>, meaning you will stil be able to cancel actions after quitting ABBA.</p>
+<p>To load a state, quit ABBA, launch it again, then choose <code>File &gt; Load State</code> and select the <code>.abba</code> file to carry on with the registration.</p>
+<div class="admonition danger">
+<p class="admonition-title">Save, save, save !</p>
+<p>Those state files are cheap, eg. they are lightweight (less than 200KB). You should save the state each time you finish a slice, and you can keep all your files, without overwritting the previous ones, appending a number to its file name. This will allow to roll back to the previous slice in the event of any problem you might face.</p>
+</div>
+<h2 id="export-registration-back-to-qupath">Export registration back to QuPath<a class="headerlink" href="#export-registration-back-to-qupath" title="Permanent link">#</a></h2>
+<h3 id="export-the-registration-from-abba">Export the registration from ABBA<a class="headerlink" href="#export-the-registration-from-abba" title="Permanent link">#</a></h3>
+<p>Once you are satisfied with your registration, select the registered slices and head to <code>Export &gt; QuPath &gt; Export Registrations To QuPath Project</code>. Check the box to make sure to get the latest registered regions.</p>
+<p>It will export several files in the QuPath projects, including the transformed atlas regions ready to be imported in QuPath and the transformations parameters to be able to convert coordinates from the extension.</p>
+<h3 id="import-the-registration-in-qupath">Import the registration in QuPath<a class="headerlink" href="#import-the-registration-in-qupath" title="Permanent link">#</a></h3>
+<p>Make sure you installed the <a href="guide-install-abba.html#abba-qupath-extension">ABBA extension</a> in QuPath.</p>
+<p>From your project with an image open, the basic usage is to head to <code>Extensions &gt; ABBA &gt; Load Atlas Annotations into Open Image</code>.
+Choose to <code>Split Left and Right Regions</code> to make the two hemispheres independent, and choose the "acronym" to name the regions. The registered regions should be imported as Annotations in the image.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>With ABBA in regular Fiji using the CCFv3 Allen mouse brain atlas, the left and right regions are flipped, because ABBA considers the slices as backward facing. The <code>importAbba.groovy</code> script located in <code>scripts/qupath-utils-atlas</code> allows you to flip left/right regions names. This is OK because the Allen brain is symmetrical by construction.</p>
+</div>
+<p>For more complex use, check the Groovy scripts in <code>scripts/qupath-utils/atlas</code>. ABBA registration is used throughout the guides, to either work with brain regions (and count objects for instance) or to get the detections' coordinates in the atlas space.</p>
+
+
+
+
+
+
+
+  
+    
+  
+  
+    
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Last update">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 19, 2024</span>
+  </span>
+
+    
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Created">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 19, 2024</span>
+  </span>
+
+    
+    
+    
+  </aside>
+
+
+
+
+
+                
+
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="guide-qupath-objects.html" class="md-footer__link md-footer__link--prev" aria-label="Previous: Detect objects with QuPath">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Detect objects with QuPath
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="guide-prepare-qupath.html" class="md-footer__link md-footer__link--next" aria-label="Next: Prepare QuPath data">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Prepare QuPath data
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Julien Bouvier lab -- NeuroPSI -- CNRS/University Paris-Saclay UMR 9197
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": ".", "features": ["navigation.path", "navigation.footer", "navigation.top", "content.code.copy", "content.code.select", "toc.follow"], "search": "assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="assets/javascripts/bundle.88dd0f4e.min.js"></script>
+      
+        <script src="javascripts/katex.js"></script>
+      
+        <script src="assets/external/unpkg.com/katex@0/dist/katex.min.js"></script>
+      
+        <script src="assets/external/unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+      
+        <script src="assets/external/unpkg.com/mermaid@11/dist/mermaid.min.js"></script>
+      
+    
+  </body>
+</html>
