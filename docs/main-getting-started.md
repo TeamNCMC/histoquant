@@ -69,9 +69,9 @@ This section explains how to actually install the `histoquant` package.
 The following commands should be run from a terminal (PowerShell). Remember that the `-c conda-forge` bits are not necessary if you installed conda with the miniforge distribution.
 
 !!! example ""
-    1. Create a virtual environment with python 3.12 and some libraries:
+    1. Create a virtual environment with python 3.12 :
     ```
-    conda create -c conda-forge -n hq python=3.12 pytables
+    conda create -c conda-forge -n hq python=3.12
     ```
     2. Get a copy of the `histoquant` Source code .zip package, from the [Releases](https://github.com/TeamNCMC/histoquant/releases/latest) page.
     3. We need to install it *inside* the `hq` environment we just created. First, you need to *activate* the `hq` environment :
