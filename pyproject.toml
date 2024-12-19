@@ -1,6 +1,6 @@
 [project]
 name = "cuisto"
-version = "2024.12.19"
+version = "2024.12.19.1"
 authors = [{ name = "Guillaume Le Goc", email = "g.legoc@posteo.org" }]
 description = "Quantification of objects in histological slices"
 readme = "README.md"

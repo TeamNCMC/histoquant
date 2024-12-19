@@ -1,5 +1,8 @@
 # cuisto
 
+[![Python Version](https://img.shields.io/pypi/pyversions/cuisto.svg)](https://pypi.org/project/cuisto)
+[![PyPI](https://img.shields.io/pypi/v/cuisto.svg)](https://pypi.org/project/cuisto/)
+
 Python package for histological quantification of objects in reference atlas regions.
 
 `cuisto` uses data exported from [QuPath](https://qupath.github.io) used with [ABBA](https://abba-documentation.readthedocs.io/en/latest/) to pool data and derive, average and display metrics.
